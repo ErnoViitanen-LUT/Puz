@@ -17708,7 +17708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b044405503af24ffea50f661175739a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishMaterial: {fileID: 2100000, guid: b2345ec5ad11a4e77bbefa375d8220eb, type: 2}
+  targetMaterial: {fileID: 2100000, guid: b2345ec5ad11a4e77bbefa375d8220eb, type: 2}
+  hiddenMaterial: {fileID: 2100000, guid: bc84f50eb3462468b998afafbe7a731b, type: 2}
 --- !u!114 &1339396724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20714,7 +20715,6 @@ GameObject:
   - component: {fileID: 1565865582}
   - component: {fileID: 1565865586}
   - component: {fileID: 1565865585}
-  - component: {fileID: 1565865584}
   - component: {fileID: 1565865583}
   m_Layer: 0
   m_Name: Main Camera
@@ -20750,20 +20750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 12, z: -7}
---- !u!114 &1565865584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565865581}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4faf40b73715d4a839d1c7d0575267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_targets:
-  - {fileID: 0}
 --- !u!81 &1565865585
 AudioListener:
   m_ObjectHideFlags: 0
