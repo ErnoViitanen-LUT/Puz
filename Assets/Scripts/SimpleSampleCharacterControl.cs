@@ -27,7 +27,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private float m_currentV = 0;
     private float m_currentH = 0;
 
-    private readonly float m_interpolation = 10;
+    private readonly float m_interpolation = 100;
     private readonly float m_walkScale = 0.33f;
     private readonly float m_backwardsWalkScale = 0.16f;
     private readonly float m_backwardRunScale = 0.66f;
@@ -193,6 +193,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
 
             m_animator.SetFloat("MoveSpeed", direction.magnitude);
+            //Debug.Log("MoveSpeed"+ direction.magnitude);
         }
 
         JumpingAndLanding();

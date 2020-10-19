@@ -5,8 +5,8 @@ public class FreeCameraLogic : MonoBehaviour
 {
 
     private Transform m_currentTarget = null;
-    private float m_distance = 2f;
-    private float m_height = 1;
+    private float m_distance = 8f;
+    private float m_height = 2;
     private float m_lookAtAroundAngle = 180;
 
     [SerializeField] private List<Transform> m_targets = null;
@@ -42,14 +42,15 @@ public class FreeCameraLogic : MonoBehaviour
     {
         if (m_currentTarget == null) { return; }
 
-        float targetHeight = m_currentTarget.position.y + m_height;
+        float targetHeight = m_height;
         float currentRotationAngle = m_lookAtAroundAngle;
 
         Quaternion currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
 
         Vector3 position = m_currentTarget.position;
         position -= currentRotation * Vector3.forward * m_distance;
-        position.y = targetHeight;
+        //position.y = targetHeight;
+        position.y = 10;
 
         transform.position = position;
         transform.LookAt(m_currentTarget.position + new Vector3(0, m_height, 0));

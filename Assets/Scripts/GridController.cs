@@ -5,6 +5,7 @@ using UnityEngine;
 public class GridController : MonoBehaviour
 {
    public Transform hexPrefab;
+   public List<Transform> list;
 
    public int gridWidth = 11;
    public int gridHeight = 11;
@@ -63,7 +64,35 @@ public class GridController : MonoBehaviour
             hex.position = CalcWorldPos(gridPos);
             hex.parent = this.transform;
             hex.name = "Hexagon" + x + "|" + y;
+            list.Add(hex);
          }
       }
    }
+   private void Update(){
+     
+        
+      if (Input.GetKeyDown(KeyCode.Space))
+      {
+         Transform obj = list[Random.Range(0,list.Count)];
+         //obj.GetComponent<Rigidbody>().useGravity = true;
+         int r1 = Random.Range(1,30);
+         int r2 = Random.Range(1,30);
+         int r3 = Random.Range(1,30);
+
+
+         obj.GetComponent<MeshCollider>().convex = true;
+         Rigidbody r = obj.GetComponent<Rigidbody>();
+         r.isKinematic = false;
+         r.AddTorque(new Vector3(r1,r2,r3),ForceMode.Impulse);
+         Debug.Log("Dropping " + obj.name);
+         list.Remove(obj);
+         for (int i = 0; i < list.Count; i++)
+         {
+         //list[i].GetComponent<Rigidbody>().useGravity = true;
+         //list[i].GetComponent<Rigidbody>().isKinematic = false;
+            //Debug.Log(list[i].name);
+         }
+      }
+        
+   } 
 }
