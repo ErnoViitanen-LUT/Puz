@@ -55,6 +55,9 @@ public class GridController : MonoBehaviour
 
    void CreateGrid()
    {
+      int rY = Random.Range(0,gridHeight);
+      int rX = Random.Range(0,gridWidth);
+
       for (int y = 0; y < gridHeight; y++)
       {
          for (int x = 0; x < gridWidth; x++)
@@ -64,9 +67,12 @@ public class GridController : MonoBehaviour
             hex.position = CalcWorldPos(gridPos);
             hex.parent = this.transform;
             hex.name = "Hexagon" + x + "|" + y;
+            if(rX == x && rY == y){
+               hex.tag = "HexTarget";
+            }
             list.Add(hex);
          }
-      }
+      }      
    }
    private void Update(){
      
@@ -74,6 +80,9 @@ public class GridController : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.Space))
       {
          Transform obj = list[Random.Range(0,list.Count)];
+         DropHex(obj.gameObject);
+/*
+         
          //obj.GetComponent<Rigidbody>().useGravity = true;
          int r1 = Random.Range(1,30);
          int r2 = Random.Range(1,30);
@@ -92,7 +101,24 @@ public class GridController : MonoBehaviour
          //list[i].GetComponent<Rigidbody>().isKinematic = false;
             //Debug.Log(list[i].name);
          }
+         */
       }
         
    } 
+   public void DropHex(GameObject hex){
+
+         int r1 = Random.Range(1,30);
+         int r2 = Random.Range(1,30);
+         int r3 = Random.Range(1,30);
+
+         if(list.Contains(hex.transform)){
+            hex.GetComponent<MeshCollider>().convex = true;
+            Rigidbody r = hex.GetComponent<Rigidbody>();
+            r.isKinematic = false;
+            r.AddTorque(new Vector3(r1,r2,r3),ForceMode.Impulse);
+            Debug.Log("Dropping " + hex.name);
+            list.Remove(hex.transform);
+         }
+
+   }
 }

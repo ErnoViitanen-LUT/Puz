@@ -26,9 +26,6 @@ public class SimpleCharacterController : MonoBehaviour
 
     private float m_currentV = 0;
     private float m_currentH = 0;
-    //public AudioSource audioSource;
-    //public AudioClip clip;
-    //public float volume=0.5f;
     private readonly float m_interpolation = 100;
     private readonly float m_runScale = 1.5f;
     private readonly float m_backwardsWalkScale = 0.16f;
@@ -41,7 +38,7 @@ public class SimpleCharacterController : MonoBehaviour
     private float m_minJumpInterval = 0.25f;
     private bool m_jumpInput = false;
 
-    public bool m_isGrounded;
+    private bool m_isGrounded;
 
     private List<Collider> m_collisions = new List<Collider>();
     float walkAudioSpeed = 0.3f;
@@ -75,7 +72,9 @@ AudioManager audioManager;
                     m_collisions.Add(collision.collider);
                 }
                 if(!m_isGrounded) {
-                    Debug.Log("grounded");
+                    GridController grid = GameObject.FindGameObjectWithTag("World").GetComponent<GridController>();
+                    if(grid) grid.DropHex(collision.gameObject);
+                    Debug.Log("grounded with " + collision.gameObject.name);
                 }
                 m_isGrounded = true;
                 
@@ -97,7 +96,7 @@ AudioManager audioManager;
 
         if (validSurfaceNormal)
         {
-            if(!m_isGrounded) Debug.Log("grounded");
+            if(!m_isGrounded) Debug.Log("grounded1");
             m_isGrounded = true;
             
             if (!m_collisions.Contains(collision.collider))
@@ -142,7 +141,7 @@ AudioManager audioManager;
         if (!m_jumpInput && Input.GetKey(KeyCode.Space))
         {
             m_jumpInput = true;
-        }
+        }        
     }
 
     private void FixedUpdate()
@@ -231,9 +230,6 @@ AudioManager audioManager;
             transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
 
             m_animator.SetFloat("MoveSpeed", direction.magnitude);
-            //GetComponent<AudioSource>().Play();
-            //Debug.Log("MoveSpeed"+ direction.magnitude);
-            //PlaySound(direction);
             
         }
 
@@ -262,30 +258,6 @@ AudioManager audioManager;
             m_animator.SetTrigger("Jump");
         }
     }
-
-     //
-     /* void PlaySound () {
-     if (m_isGrounded && (Input.GetButton("Vertical") || Input.GetButton("Horizontal")) ){
-         //if(!audioSource.isPlaying){
-             audioSource.Play();
-         //}
-           
-     }
-
-     
-    float playerWalkSoundThreshholdRatio = 0.01f;
-     //Debug.Log(direction.magnitude + " " + m_moveSpeed * playerWalkSoundThreshholdRatio);
-    audioSource.volume = direction.magnitude * 100f;
-    if(direction.magnitude > m_moveSpeed * playerWalkSoundThreshholdRatio){
-    if(!playerWalkSoundCreated){
-        Debug.Log("play sound " + audioSource.clip.name);
-        GetComponent<AudioSource>().Play();
-        playerWalkSoundCreated = true;
-    }
-    }else{     
-        //audioSource.Stop();
-        playerWalkSoundCreated = false;
-    }*/
 
     void PlayFootsteps() 
     {

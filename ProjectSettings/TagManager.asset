@@ -7,6 +7,7 @@ TagManager:
   - HexTarget
   - HexHidden
   - AudioManager
+  - World
   layers:
   - Default
   - TransparentFX
