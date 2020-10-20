@@ -8,19 +8,27 @@ public class PlayerController : MonoBehaviour
 {
 
    public float boundary = 100f;
-   public float maximumSpeed = 10f;
+   public float maximumSpeed = 1000f;
    public Vector3 startPosition = new Vector3(3f, 50f, 0);
    Rigidbody r;
-   GameObject hexTarget;
-   GameObject hexHidden;
+   public AudioClip audioTarget;
 
    private bool levelComplete = false;
+
+    private void Awake(){
+       
+      Debug.Log("Awake");
+    }
    void Start()
    {
+      Debug.Log("Start");
       r = GetComponent<Rigidbody>();
-      hexTarget = GameObject.FindGameObjectWithTag("HexTarget");
-      hexHidden = GameObject.FindGameObjectWithTag("HexHidden");
-      r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
+      //audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+      Reset();
+      
+      //audioSource.clip = audioTarget;
+      
+      DontDestroyOnLoad(transform.gameObject);   
 
       //StartCoroutine(Upload());
 
@@ -30,6 +38,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log(i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
       }
       */
+   }
+   public void Reset(){
+            
+      r.velocity = Vector3.zero;
+      transform.gameObject.GetComponent<SimpleCharacterController>().Reset();
+      r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
+      
    }
 
    IEnumerator Upload()
@@ -57,14 +72,7 @@ public class PlayerController : MonoBehaviour
    void Update()
    {
 
-      float speed = Vector3.Magnitude(r.velocity);  // test current object speed
-
-      if (speed > maximumSpeed && !levelComplete)
-      {
-         float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease         
-         r.AddForce(Vector3.up * brakeSpeed, ForceMode.Impulse);  // apply opposing brake force               
-
-      }
+      brakeDescend();
 
       if (transform.position.y < boundary * -1)
       {
@@ -72,6 +80,7 @@ public class PlayerController : MonoBehaviour
             transform.position = startPosition;
          else
          {
+            levelComplete = false;
             int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
             //Debug.Log(nextScene + " " + SceneManager.sceneCountInBuildSettings);
             if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
@@ -79,6 +88,7 @@ public class PlayerController : MonoBehaviour
                SceneManager.LoadScene(0);
             }
             else SceneManager.LoadScene(nextScene);
+            
          }
 
          //rigidbody.velocity = Vector3.zero;
@@ -86,14 +96,26 @@ public class PlayerController : MonoBehaviour
 
       }
    }
+
+   void brakeDescend(){      
+      float speed = Vector3.Magnitude(r.velocity);  // test current object speed
+      if (speed > maximumSpeed && !levelComplete)
+      {
+         float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease     
+         //Debug.Log("braking " + brakeSpeed);
+         r.AddForce(r.velocity * (-brakeSpeed/10), ForceMode.Impulse);  // apply opposing brake force   
+      }
+   }
+   
    void OnTriggerExit(Collider other)
    {
       Debug.Log("TriggerExit" + gameObject.name + " with " + other.name);
 
-      if (other.tag == hexTarget.tag)
+      if (other.tag == "HexTarget")
       {
          levelComplete = true;
          r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
+         AudioManager.Instance.PlayLevelClear();
       }
       //Destroy(gameObject);
       //Destroy(other);
@@ -101,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
    void OnTriggerEnter(Collider other)
    {
-      if (other.tag == hexHidden.tag)
+      if (other.tag == "HexHidden")
       {
          Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
          int r1 = Random.Range(1, 30);
@@ -114,6 +136,21 @@ public class PlayerController : MonoBehaviour
 
          r.isKinematic = false;
          r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);
+      }
+      else if (other.tag == "Player")
+      {
+         Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
+         int r1 = Random.Range(1, 30);
+         int r2 = Random.Range(1, 30);
+         int r3 = Random.Range(1, 30);
+
+         //other.GetComponent<MeshCollider>().isTrigger = false;
+         //other.GetComponent<MeshCollider>().convex = true;
+         Rigidbody r = other.GetComponent<Rigidbody>();
+
+         //r.isKinematic = false;
+         r.AddForce(Vector3.forward * 10,ForceMode.Impulse);
+         //r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);
       }
    }
 }

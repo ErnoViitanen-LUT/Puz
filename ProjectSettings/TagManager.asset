@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HexTarget
   - HexHidden
+  - AudioManager
   layers:
   - Default
   - TransparentFX

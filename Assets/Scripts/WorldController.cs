@@ -10,8 +10,7 @@ public class WorldController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject gameObject = GameObject.FindGameObjectWithTag("HexTarget");
-     
+        GameObject gameObject = GameObject.FindGameObjectWithTag("HexTarget");     
         // assign the material to the renderer
         gameObject.GetComponent<Renderer>().material = targetMaterial;   
         MeshCollider collider = gameObject.GetComponent<MeshCollider>();
@@ -25,6 +24,8 @@ public class WorldController : MonoBehaviour
             coll.convex = true;
             coll.isTrigger = true;
         }
+        PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player.Reset();
         
     }
 

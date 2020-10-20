@@ -221,6 +221,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7533391}
   m_Mesh: {fileID: 4300000, guid: 07066142625c74d10bcc6ecab62e5db0, type: 3}
+--- !u!1 &19058553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19058556}
+  - component: {fileID: 19058555}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Music
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &19058555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19058553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8376daaa6703a4e868fce253fc2050e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicClip: {fileID: 8300000, guid: 5dc4d48f569d146d79ac73fe5d7ca056, type: 3}
+  effectClip: {fileID: 8300000, guid: 01636e7333c29ee48aa8bbe4ce0bc966, type: 3}
+--- !u!4 &19058556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19058553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.9672794, y: 0.099999994, z: 6.1099997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &21293001
 GameObject:
   m_ObjectHideFlags: 0
@@ -14741,6 +14786,21 @@ PrefabInstance:
       propertyPath: m_moveSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 218392958736802718, guid: 193a1209dcca843a8b961fbf7203b993,
+        type: 3}
+      propertyPath: walkAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
+    - target: {fileID: 218392958736802718, guid: 193a1209dcca843a8b961fbf7203b993,
+        type: 3}
+      propertyPath: runAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
+    - target: {fileID: 218392958736802718, guid: 193a1209dcca843a8b961fbf7203b993,
+        type: 3}
+      propertyPath: finishAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
     - target: {fileID: 8820315464734358191, guid: 193a1209dcca843a8b961fbf7203b993,
         type: 3}
       propertyPath: m_Name
@@ -14844,6 +14904,7 @@ MonoBehaviour:
   boundary: 50
   maximumSpeed: 10
   startPosition: {x: 0, y: 30, z: 0}
+  audioTarget: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
 --- !u!1 &1166656048
 GameObject:
   m_ObjectHideFlags: 0
