@@ -12,7 +12,7 @@ https://ernoviitanen-lut.github.io/Puz/index.html
 
 ## Credits
 
-Character Pack: Free Sample by Sypercyan[Asset Store](https://assetstore.unity.com/packages/3d/characters/humanoids/character-pack-free-sample-79870)
+Character Pack: Free Sample by Sypercyan [Asset Store](https://assetstore.unity.com/packages/3d/characters/humanoids/character-pack-free-sample-79870)
 
 * Character and animation
 * SimpleCharacterController

@@ -8,6 +8,8 @@ public class MenuButton : MonoBehaviour
     public MenuController menuController;
     public Animator animator;
     public int thisIndex;
+    string url = "https://github.com/ErnoViitanen-LUT/Puz";
+    bool submitted = false;
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,10 @@ public class MenuButton : MonoBehaviour
         animator.SetBool ("selected", true);
         if(Input.GetAxis ("Submit") == 1){
           animator.SetBool ("pressed", true);          
-          Invoke("ButtonPress",0.25f);
+          if (!submitted) {
+            submitted = true;
+             Invoke("ButtonPress",0.25f);
+          }
         }else if (animator.GetBool ("pressed")){
           animator.SetBool ("pressed", false);		        
         }
@@ -32,13 +37,12 @@ public class MenuButton : MonoBehaviour
       }          
     }
     void ButtonPress(){
-      
       if(thisIndex == 0) {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);        
       }
       if(thisIndex == 2) {
-        Debug.Log("Quit");
-        Application.Quit();
+        Application.OpenURL(url);
+        
       }
     }
 }
