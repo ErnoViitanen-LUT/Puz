@@ -22,7 +22,8 @@ public class WorldController : MonoBehaviour
         if (!target)
         {            
             target = GameObject.FindGameObjectWithTag("HexTarget");
-            Debug.Log(target.name);
+            //Debug.Log(target.name);
+ 
             target.GetComponent<Renderer>().material = targetMaterial;   
             MeshCollider collider = target.GetComponent<MeshCollider>();
             collider.convex = true;

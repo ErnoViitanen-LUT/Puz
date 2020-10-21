@@ -58,7 +58,7 @@ AudioManager audioManager;
     }
 
     public void Reset(){
-        m_currentDirection = Vector3.zero;
+        m_currentDirection = Vector3.zero;        
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -228,10 +228,11 @@ AudioManager audioManager;
 
             transform.rotation = Quaternion.LookRotation(m_currentDirection);
             transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
-
-            m_animator.SetFloat("MoveSpeed", direction.magnitude);
+                        
+            m_animator.SetFloat("MoveSpeed", direction.magnitude); 
             
         }
+        else Reset();
 
         JumpingAndLanding();
     }

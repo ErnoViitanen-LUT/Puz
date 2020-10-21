@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
    public float maximumSpeed = 1000f;
    public Vector3 startPosition = new Vector3(3f, 50f, 0);
    Rigidbody r;
-   public AudioClip audioTarget;
 
    private bool levelComplete = false;
 
@@ -85,7 +84,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log(nextScene + " " + SceneManager.sceneCountInBuildSettings);
             if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
             {
-               SceneManager.LoadScene(0);
+               SceneManager.LoadScene(1);
             }
             else SceneManager.LoadScene(nextScene);
             

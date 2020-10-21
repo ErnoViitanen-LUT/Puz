@@ -9,6 +9,7 @@ public class GridController : MonoBehaviour
 
    public int gridWidth = 11;
    public int gridHeight = 11;
+   public bool fragile = true;
 
    float hexWidth = 1.732f;
    float hexHeight = 2.0f;
@@ -79,7 +80,7 @@ public class GridController : MonoBehaviour
         
       if (Input.GetKeyDown(KeyCode.Space))
       {
-         Transform obj = list[Random.Range(0,list.Count)];
+         Transform obj = list[Random.Range(0,list.Count)];         
          DropHex(obj.gameObject);
 /*
          
@@ -111,7 +112,7 @@ public class GridController : MonoBehaviour
          int r2 = Random.Range(1,30);
          int r3 = Random.Range(1,30);
 
-         if(list.Contains(hex.transform)){
+         if(fragile && list.Contains(hex.transform)){
             hex.GetComponent<MeshCollider>().convex = true;
             Rigidbody r = hex.GetComponent<Rigidbody>();
             r.isKinematic = false;
