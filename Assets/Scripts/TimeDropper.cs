@@ -6,6 +6,8 @@ public class TimeDropper : MonoBehaviour
 {
     public int dropIndex;
     // Start is called before the first frame update
+AudioManager audioManager;
+
     public void drop(){
         
          int r1 = Random.Range(1, 30);
@@ -20,5 +22,7 @@ public class TimeDropper : MonoBehaviour
          r.isKinematic = false;
          r.useGravity = true;
          r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);
+         
+         GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayBoulder();
     }
 }

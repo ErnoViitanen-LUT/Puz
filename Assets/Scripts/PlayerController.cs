@@ -130,7 +130,8 @@ public class PlayerController : MonoBehaviour
    {
       if (other.tag == "HexHidden")
       {
-         Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
+         other.GetComponent<TimeDropper>().drop();
+         /*Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
          int r1 = Random.Range(1, 30);
          int r2 = Random.Range(1, 30);
          int r3 = Random.Range(1, 30);
@@ -140,7 +141,7 @@ public class PlayerController : MonoBehaviour
          Rigidbody r = other.GetComponent<Rigidbody>();
 
          r.isKinematic = false;
-         r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);
+         r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);*/
       }
       else if (other.tag == "Player")
       {

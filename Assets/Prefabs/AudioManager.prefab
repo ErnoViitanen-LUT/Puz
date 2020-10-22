@@ -47,7 +47,15 @@ MonoBehaviour:
   musicOn: 1
   footStep: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
   levelClear: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
-  jumpStart: {fileID: 8300000, guid: 99ce5cbfa1a894627b79ea51f715bfc3, type: 3}
-  jumpEnd: {fileID: 8300000, guid: e3285200501f84c55a648a8b8862b722, type: 3}
+  jumpStart:
+  - {fileID: 8300000, guid: d2e675d6622d24295abe6c09d92ecf38, type: 3}
+  - {fileID: 8300000, guid: 99ce5cbfa1a894627b79ea51f715bfc3, type: 3}
+  jumpEnd:
+  - {fileID: 8300000, guid: e3285200501f84c55a648a8b8862b722, type: 3}
+  boulders:
+  - {fileID: 8300000, guid: 480d250a526eae247b836dc749f0f95e, type: 3}
+  - {fileID: 8300000, guid: 7d50e90f8f6db014d9509984638b82f0, type: 3}
+  - {fileID: 8300000, guid: 63b725c0263025b49a67a57aca259c51, type: 3}
+  - {fileID: 8300000, guid: 9d8209a0af0f2854ea0ae0a889688557, type: 3}
   musicVolume: 0.8
   effectsVolume: 0.8
