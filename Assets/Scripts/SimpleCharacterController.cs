@@ -36,7 +36,7 @@ public class SimpleCharacterController : MonoBehaviour
     private Vector3 m_currentDirection = Vector3.zero;
 
     private float m_jumpTimeStamp = 0;
-    private float m_minJumpInterval = 0.25f;
+    public float m_minJumpInterval = 0.1f;
     private bool m_jumpInput = false;
 
     private bool m_isGrounded;
