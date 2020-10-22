@@ -84,7 +84,7 @@ AudioManager audioManager;
     }
 
     private void OnCollisionStay(Collision collision)
-    {
+    {        
         ContactPoint[] contactPoints = collision.contacts;
         bool validSurfaceNormal = false;
         for (int i = 0; i < contactPoints.Length; i++)
@@ -97,7 +97,6 @@ AudioManager audioManager;
 
         if (validSurfaceNormal)
         {
-            if(!m_isGrounded) Debug.Log("grounded1");
             m_isGrounded = true;
             
             if (!m_collisions.Contains(collision.collider))
@@ -111,7 +110,7 @@ AudioManager audioManager;
             {
                 m_collisions.Remove(collision.collider);
             }
-            if (m_collisions.Count == 0) { if(m_isGrounded) Debug.Log("not grounded"); m_isGrounded = false; }
+            if (m_collisions.Count == 0) { m_isGrounded = false; }
         }
     }
 
@@ -122,10 +121,7 @@ AudioManager audioManager;
             m_collisions.Remove(collision.collider);
         }
         if (m_collisions.Count == 0) {  
-            if(m_isGrounded) {
-                
-                Debug.Log("not grounded");
-             } m_isGrounded = false; 
+             m_isGrounded = false; 
         }
     }
 
@@ -143,6 +139,12 @@ AudioManager audioManager;
         {
             m_jumpInput = true;
         }        
+        foreach (Collider collision in m_collisions)
+        {
+            if(!collision){
+                m_collisions.Remove(collision);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -242,10 +244,13 @@ AudioManager audioManager;
     {
         bool jumpCooldownOver = (Time.time - m_jumpTimeStamp) >= m_minJumpInterval;
 
+
         if (jumpCooldownOver && m_isGrounded && m_jumpInput)
         {
-            m_jumpTimeStamp = Time.time;            
+            Debug.Log("add force" + " " + (Time.time - m_jumpTimeStamp) + " stamp" + m_jumpTimeStamp + " time" + Time.time + " g" + m_isGrounded + "" + m_collisions.Count);       
+            m_jumpTimeStamp = Time.time;                 
             m_rigidBody.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);
+            //m_isGrounded = false;
         }
 
         if (!m_wasGrounded && m_isGrounded)
@@ -258,7 +263,7 @@ AudioManager audioManager;
         {
             AudioManager.Instance.PlayJumpStart();
             m_animator.SetTrigger("Jump");
-        }
+        }  
     }
 
     void PlayFootsteps() 
