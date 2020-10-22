@@ -7,22 +7,51 @@ public class TimeController : MonoBehaviour
     public GameObject text;
     UnityEngine.UI.Text time;
 
-    public float timer;
-    public bool timeStarted = true;
- 
+    float timer;
+    bool timeStarted = true;
+
+    public float startTimeToDrop = 5f;
+    float timeToDrop;
+    public float nextTimeToDrop = 1f;
+    
+    WorldController world;
+    List<TimeDropper> sortedGrid;
  
     // Start is called before the first frame update
     void Start()
-    {
-        time = text.GetComponent<UnityEngine.UI.Text>();
-    }
+   {
+      world = gameObject.GetComponent<WorldController>();
+      time = text.GetComponent<UnityEngine.UI.Text>();
+      Debug.Log(gameObject.transform.childCount);
+      sortedGrid = new List<TimeDropper>();
+      timeToDrop = startTimeToDrop;
+      foreach (Transform item in gameObject.transform)
+      {
+         TimeDropper dropper = item.GetComponent<TimeDropper>();
+         if(dropper.dropIndex != 0){
+            sortedGrid.Add(dropper);               
+         }
+      }
+      sortedGrid.Sort((p1,p2)=>p1.dropIndex.CompareTo(p2.dropIndex));      
+   }
 
     // Update is called once per frame
     void Update()
     {        
         if (timeStarted == true) 
         {
+           for (int i = 0; i < sortedGrid.Count; i++)
+           {
+               Debug.Log(sortedGrid[i].name + " " + sortedGrid[i].dropIndex);
+           }
             timer += Time.deltaTime;
+            timeToDrop -= Time.deltaTime;
+            if(timeToDrop < 0 && sortedGrid.Count > 0){
+               timeToDrop = nextTimeToDrop;
+               sortedGrid[0].drop();
+               sortedGrid.RemoveAt(0);
+            }
+
             ShowOnGui();
             
         }       
@@ -34,7 +63,7 @@ public class TimeController : MonoBehaviour
         string seconds = (timer % 60).ToString("00");
     
         //GUI.Label(new Rect(10,10,250,100), minutes + ":" + Mathf.RoundToInt(seconds));
-        time.text = FloatToTime(timer,"#0:00.00");
+        time.text = FloatToTime(timer,"#0:00.0");
     }
     public string FloatToTime (float toConvert, string format){
          switch (format){
