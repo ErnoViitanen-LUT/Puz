@@ -9,10 +9,18 @@ public class WorldController : MonoBehaviour
    public Material hiddenMaterial;
    // Start is called before the first frame update
    GameObject target;
+   public GameObject playerPrefab;
+   public GameObject audioManagerPrefab;
+   GameObject player;
+   CameraController cameraController;
    void Start()
    {
-      // assign the material to the renderer
 
+      Instantiate(audioManagerPrefab);
+      cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+      cameraController.player = Instantiate(playerPrefab);
+
+      // assign the material to the renderer
 
    }
 

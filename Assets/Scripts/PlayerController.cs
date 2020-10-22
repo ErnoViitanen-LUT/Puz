@@ -14,20 +14,21 @@ public class PlayerController : MonoBehaviour
 
    private bool levelComplete = false;
 
-    private void Awake(){
-       
+   private void Awake()
+   {
+
       Debug.Log("Awake");
-    }
+   }
    void Start()
    {
       Debug.Log("Start");
       r = GetComponent<Rigidbody>();
       //audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
       Reset();
-      
+
       //audioSource.clip = audioTarget;
-      
-      DontDestroyOnLoad(transform.gameObject);   
+
+      DontDestroyOnLoad(transform.gameObject);
 
       //StartCoroutine(Upload());
 
@@ -38,12 +39,13 @@ public class PlayerController : MonoBehaviour
       }
       */
    }
-   public void Reset(){
-            
+   public void Reset()
+   {
+
       r.velocity = Vector3.zero;
       transform.gameObject.GetComponent<SimpleCharacterController>().Reset();
       r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
-      
+
    }
 
    IEnumerator Upload()
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour
                SceneManager.LoadScene(1);
             }
             else SceneManager.LoadScene(nextScene);
-            
+
          }
 
          //rigidbody.velocity = Vector3.zero;
@@ -96,16 +98,17 @@ public class PlayerController : MonoBehaviour
       }
    }
 
-   void brakeDescend(){      
+   void brakeDescend()
+   {
       float speed = Vector3.Magnitude(r.velocity);  // test current object speed
       if (speed > maximumSpeed && !levelComplete)
       {
          float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease     
          //Debug.Log("braking " + brakeSpeed);
-         r.AddForce(r.velocity * (-brakeSpeed/10), ForceMode.Impulse);  // apply opposing brake force   
+         r.AddForce(r.velocity * (-brakeSpeed / 10), ForceMode.Impulse);  // apply opposing brake force   
       }
    }
-   
+
    void OnTriggerExit(Collider other)
    {
       Debug.Log("TriggerExit" + gameObject.name + " with " + other.name);
@@ -148,7 +151,7 @@ public class PlayerController : MonoBehaviour
          Rigidbody r = other.GetComponent<Rigidbody>();
 
          //r.isKinematic = false;
-         r.AddForce(Vector3.forward * 10,ForceMode.Impulse);
+         r.AddForce(Vector3.forward * 10, ForceMode.Impulse);
          //r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);
       }
    }
