@@ -15,10 +15,14 @@ public class WorldController : MonoBehaviour
    CameraController cameraController;
    void Start()
    {
-
-      Instantiate(audioManagerPrefab);
+      if(!GameObject.FindGameObjectWithTag("AudioManager"))
+         Instantiate(audioManagerPrefab);
+      
       cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
-      cameraController.player = Instantiate(playerPrefab);
+      player = GameObject.FindGameObjectWithTag("Player");
+      if(!player) player = Instantiate(playerPrefab);  
+      
+      cameraController.player = player;
 
       // assign the material to the renderer
 

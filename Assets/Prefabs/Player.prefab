@@ -1426,7 +1426,7 @@ MonoBehaviour:
   sun: {fileID: 3393143905301562244}
   flashlight: {fileID: 3393143903833238712}
   secondsInFullDay: 240
-  currentTimeOfDay: 0
+  currentTimeOfDay: 0.24
   timeMultiplier: 1
 --- !u!114 &3393143905082572568
 MonoBehaviour:
