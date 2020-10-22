@@ -11,17 +11,22 @@ public class WorldController : MonoBehaviour
    GameObject target;
    public GameObject playerPrefab;
    public GameObject audioManagerPrefab;
+   public GameObject canvasPrefab;
    GameObject player;
    CameraController cameraController;
+   GameObject canvas;
    void Start()
    {
-      if(!GameObject.FindGameObjectWithTag("AudioManager"))
+      if (!GameObject.FindGameObjectWithTag("AudioManager"))
          Instantiate(audioManagerPrefab);
-      
+
+      canvas = Instantiate(canvasPrefab);
+
       cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
       player = GameObject.FindGameObjectWithTag("Player");
-      if(!player) player = Instantiate(playerPrefab);  
-      
+      if (!player) player = Instantiate(playerPrefab);
+
+      gameObject.GetComponent<TimeController>().text = canvas.GetComponentInChildren<UnityEngine.UI.Text>().gameObject;
       cameraController.player = player;
 
       // assign the material to the renderer

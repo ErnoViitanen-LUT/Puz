@@ -1,70 +1,83 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class  AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    private static AudioManager _instance;
+   private static AudioManager _instance;
 
-    public static AudioManager Instance { get { return _instance; } }
-    public AudioClip musicClip;
-    public bool musicOn = true;
-    public AudioClip effectClip;
-    public AudioClip footStep;
-    public AudioClip levelClear;
-    public AudioClip jumpStart;
-    public AudioClip jumpEnd;
+   public static AudioManager Instance { get { return _instance; } }
+   public AudioClip musicClip;
+   public bool musicOn = true;
+   public AudioClip footStep;
+   public AudioClip levelClear;
+   public AudioClip jumpStart;
+   public AudioClip jumpEnd;
 
-    AudioSource musicSource;
-    AudioSource footStepSource;
-    AudioSource levelClearSource;
-     private void Awake()
-     {
-         if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        } else {
-            _instance = this;
-            musicSource = gameObject.AddComponent<AudioSource>();
-            musicSource.clip = musicClip;
-            musicSource.loop = true;
+   public float musicVolume = 0.8f;
+   public float effectsVolume = 0.8f;
 
-            levelClearSource = gameObject.AddComponent<AudioSource>();  
-            levelClearSource.clip = levelClear;
-            
-            footStepSource = gameObject.AddComponent<AudioSource>();            
-            footStepSource.clip = footStep;
-            DontDestroyOnLoad(transform.gameObject);            
-            PlayMusic();
-        }
-         
-     }
- 
-     public void PlayMusic()
-     {
-        if (!musicSource.isPlaying && musicOn){
-             musicSource.Play();
-        }
-       /* if (!effectSource.isPlaying){
-             effectSource.Play();
-        }*/
-     }
- 
-     public void StopMusic()
-     {
-         musicSource.Stop();
-         //effectSource.Stop();
-     }
-     public void PlayLevelClear(){
-         levelClearSource.Play();
-     }
-     public void PlayFootStep(){
-         footStepSource.Play();
-     }
-     public void PlayJumpStart(){         
-            levelClearSource.PlayOneShot(jumpStart);
-     }
-     public void PlayJumpEnd(){      
-            levelClearSource.PlayOneShot(jumpEnd);
-     }
+   AudioSource musicSource;
+   AudioSource footStepSource;
+   AudioSource effectSource;
+   private void Awake()
+   {
+      if (_instance != null && _instance != this)
+      {
+         Destroy(this.gameObject);
+      }
+      else
+      {
+         _instance = this;
+         musicSource = gameObject.AddComponent<AudioSource>();
+         musicSource.clip = musicClip;
+         musicSource.loop = true;
+         musicSource.volume = musicVolume;
+
+         effectSource = gameObject.AddComponent<AudioSource>();
+         effectSource.clip = levelClear;
+         effectSource.volume = effectsVolume;
+
+         footStepSource = gameObject.AddComponent<AudioSource>();
+         footStepSource.clip = footStep;
+         footStepSource.volume = effectsVolume;
+         DontDestroyOnLoad(transform.gameObject);
+         PlayMusic();
+      }
+
+   }
+
+   public void PlayMusic()
+   {
+      if (!musicSource.isPlaying && musicOn)
+      {
+         musicSource.Play();
+      }
+      /* if (!effectSource.isPlaying){
+            effectSource.Play();
+       }*/
+   }
+
+   public void StopMusic()
+   {
+      musicSource.Stop();
+      //effectSource.Stop();
+   }
+   public void PlayLevelClear()
+   {
+      effectSource.Play();
+   }
+   public void PlayFootStep()
+   {
+      footStepSource.Play();
+   }
+   public void PlayJumpStart()
+   {
+      effectSource.PlayOneShot(jumpStart);
+   }
+   public void PlayJumpEnd()
+   {
+      effectSource.PlayOneShot(jumpEnd);
+   }
 }

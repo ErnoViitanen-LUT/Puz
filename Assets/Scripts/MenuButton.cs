@@ -48,6 +48,10 @@ public class MenuButton : MonoBehaviour
       {
          SceneManager.LoadScene(1);
       }
+      if (thisIndex == 1)
+      {
+         //options
+      }
       if (thisIndex == 2)
       {
          Application.OpenURL(url);
