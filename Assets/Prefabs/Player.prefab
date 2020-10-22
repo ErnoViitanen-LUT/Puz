@@ -1412,6 +1412,7 @@ MonoBehaviour:
   m_rigidBody: {fileID: 6176843590496234627}
   m_controlMode: 1
   easyMode: 1
+  m_minJumpInterval: 0.25
 --- !u!114 &3393143905082572575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,6 +1445,7 @@ MonoBehaviour:
   boundary: 50
   maximumSpeed: 10
   startPosition: {x: 0, y: 30, z: 0}
+  gameCompleted: 0
 --- !u!1 &6160595185876797411
 GameObject:
   m_ObjectHideFlags: 0

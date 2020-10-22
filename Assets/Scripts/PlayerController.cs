@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
    Rigidbody r;
 
    private bool levelComplete = false;
+   public int gameCompleted = 0;
 
    private void Awake()
    {
@@ -86,6 +87,8 @@ public class PlayerController : MonoBehaviour
             //Debug.Log(nextScene + " " + SceneManager.sceneCountInBuildSettings);
             if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
             {
+               gameCompleted++;
+               gameObject.GetComponent<SimpleCharacterController>().easyMode = false;
                SceneManager.LoadScene(1);
             }
             else SceneManager.LoadScene(nextScene);
