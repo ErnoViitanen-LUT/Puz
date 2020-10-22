@@ -24,6 +24,7 @@ public class SimpleCharacterController : MonoBehaviour
 
     [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
 
+    public bool easyMode = false;
     private float m_currentV = 0;
     private float m_currentH = 0;
     private readonly float m_interpolation = 100;
@@ -208,7 +209,7 @@ AudioManager audioManager;
             h *= m_runScale;
         }
         float interpol = m_interpolation;
-        if (!m_isGrounded)
+        if (!m_isGrounded && !easyMode)
         {
             interpol = 1;            
         }

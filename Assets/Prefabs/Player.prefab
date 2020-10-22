@@ -1411,6 +1411,7 @@ MonoBehaviour:
   m_animator: {fileID: 6065070702335734883}
   m_rigidBody: {fileID: 6176843590496234627}
   m_controlMode: 1
+  easyMode: 1
 --- !u!114 &3393143905082572575
 MonoBehaviour:
   m_ObjectHideFlags: 0
