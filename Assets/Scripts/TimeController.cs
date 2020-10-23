@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-   [HideInInspector]
+
+   //[HideInInspector]
    public GameObject text;
    UnityEngine.UI.Text time;
 
@@ -16,27 +17,34 @@ public class TimeController : MonoBehaviour
    public float nextTimeToDrop = 1f;
 
    WorldController world;
-   List<TimeDropper> sortedGrid;
+   List<DropController> sortedGrid;
    PlayerController player;
    int fastMode;
 
    // Start is called before the first frame update
    void Start()
    {
+
+      Debug.Log("start timecontroller");
       world = gameObject.GetComponent<WorldController>();
+
       player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
       time = text.GetComponent<UnityEngine.UI.Text>();
-      Debug.Log(gameObject.transform.childCount);
-      sortedGrid = new List<TimeDropper>();
       if (player.gameCompleted > 1)
       {
          startTimeToDrop /= 2;
          nextTimeToDrop /= 10;
       }
       timeToDrop = startTimeToDrop;
+      CreateSortedGrid();
+   }
+
+   void CreateSortedGrid()
+   {
+      sortedGrid = new List<DropController>();
       foreach (Transform item in gameObject.transform)
       {
-         TimeDropper dropper = item.GetComponent<TimeDropper>();
+         DropController dropper = item.GetComponent<DropController>();
          if (dropper.dropIndex != 0)
          {
             sortedGrid.Add(dropper);
@@ -44,7 +52,6 @@ public class TimeController : MonoBehaviour
       }
       sortedGrid.Sort((p1, p2) => p1.dropIndex.CompareTo(p2.dropIndex));
    }
-
    // Update is called once per frame
    void Update()
    {
@@ -53,7 +60,6 @@ public class TimeController : MonoBehaviour
          timer += Time.deltaTime;
          UpdateHexDrop();
          ShowOnGui();
-
       }
    }
    void UpdateHexDrop()

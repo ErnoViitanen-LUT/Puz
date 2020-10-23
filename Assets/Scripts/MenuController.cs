@@ -8,10 +8,12 @@ public class MenuController : MonoBehaviour
    public int index = 0;
    public int maxIndex = 2;
    public bool keyDown;
+   public GameObject audioManagerPrefab;
    // Start is called before the first frame update
    void Start()
    {
-
+      if (!GameObject.FindGameObjectWithTag("AudioManager"))
+         Instantiate(audioManagerPrefab);
    }
 
    // Update is called once per frame

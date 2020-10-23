@@ -15,6 +15,11 @@ public class WorldController : MonoBehaviour
    GameObject player;
    CameraController cameraController;
    GameObject canvas;
+
+
+   public float startTimeToDrop = 5f;
+   public float nextTimeToDrop = 1f;
+
    void Start()
    {
       if (!GameObject.FindGameObjectWithTag("AudioManager"))
@@ -23,10 +28,19 @@ public class WorldController : MonoBehaviour
       canvas = Instantiate(canvasPrefab);
 
       cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
-      player = GameObject.FindGameObjectWithTag("Player");
-      if (!player) player = Instantiate(playerPrefab);
 
-      gameObject.GetComponent<TimeController>().text = canvas.GetComponentInChildren<UnityEngine.UI.Text>().gameObject;
+      player = GameObject.FindGameObjectWithTag("Player");
+
+      if (!player)
+      {
+         player = Instantiate(playerPrefab);
+      }
+
+      TimeController timeController = gameObject.AddComponent<TimeController>();
+      timeController.startTimeToDrop = startTimeToDrop;
+      timeController.nextTimeToDrop = nextTimeToDrop;
+      timeController.text = canvas.GetComponentInChildren<UnityEngine.UI.Text>().gameObject;
+
       cameraController.player = player;
 
       // assign the material to the renderer

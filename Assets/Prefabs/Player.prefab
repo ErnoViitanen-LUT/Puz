@@ -1445,7 +1445,7 @@ MonoBehaviour:
   boundary: 50
   maximumSpeed: 10
   startPosition: {x: 0, y: 30, z: 0}
-  gameCompleted: 0
+  gameCompleted: 1
 --- !u!1 &6160595185876797411
 GameObject:
   m_ObjectHideFlags: 0

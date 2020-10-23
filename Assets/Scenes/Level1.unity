@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37312, g: 0.38074034, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 11
+  dropIndex: 8
 --- !u!1 &170037103
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 9
 --- !u!1 &773915409
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 10
+  dropIndex: 0
 --- !u!1 &856553795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1722,6 @@ GameObject:
   - component: {fileID: 1339396725}
   - component: {fileID: 1339396724}
   - component: {fileID: 1339396723}
-  - component: {fileID: 1339396726}
   m_Layer: 0
   m_Name: World
   m_TagString: World
@@ -1750,6 +1749,8 @@ MonoBehaviour:
     type: 3}
   canvasPrefab: {fileID: 9195442784369587525, guid: 17290b546108c400ba0101b72b6d89b5,
     type: 3}
+  startTimeToDrop: 1
+  nextTimeToDrop: 0.5
 --- !u!114 &1339396724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,21 +1803,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1339396726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339396722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb66d3b196346184283ddd4d9f5648e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  startTimeToDrop: 5
-  nextTimeToDrop: 1
 --- !u!1 &1514784061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,7 +1925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 7
+  dropIndex: 6
 --- !u!1 &1565865581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 8
+  dropIndex: 0
 --- !u!1 &1825952769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,7 +2286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1920063175
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -7295,4 +7281,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 7

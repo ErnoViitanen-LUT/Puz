@@ -3690,7 +3690,6 @@ GameObject:
   - component: {fileID: 880029230}
   - component: {fileID: 880029229}
   - component: {fileID: 880029228}
-  - component: {fileID: 880029231}
   m_Layer: 0
   m_Name: World
   m_TagString: World
@@ -3718,6 +3717,8 @@ MonoBehaviour:
     type: 3}
   canvasPrefab: {fileID: 9195442784369587525, guid: 17290b546108c400ba0101b72b6d89b5,
     type: 3}
+  startTimeToDrop: 4
+  nextTimeToDrop: 1
 --- !u!114 &880029229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3821,21 +3822,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &880029231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880029227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb66d3b196346184283ddd4d9f5648e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  startTimeToDrop: 5
-  nextTimeToDrop: 1
 --- !u!1 &921259065
 GameObject:
   m_ObjectHideFlags: 0

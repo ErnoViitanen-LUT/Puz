@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
    {
       if (other.tag == "HexHidden")
       {
-         other.GetComponent<TimeDropper>().drop();
+         other.GetComponent<DropController>().drop();
          /*Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
          int r1 = Random.Range(1, 30);
          int r2 = Random.Range(1, 30);

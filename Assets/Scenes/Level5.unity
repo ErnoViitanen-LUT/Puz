@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 11
 --- !u!54 &197419010
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 60
 --- !u!54 &210421319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 70
 --- !u!54 &214217181
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 5
 --- !u!54 &215216470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -774,7 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 40
 --- !u!54 &224253137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 3
 --- !u!54 &261484529
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 70
 --- !u!54 &320986532
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 3
 --- !u!54 &333541427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 2
 --- !u!54 &666389117
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2214,7 +2214,6 @@ GameObject:
   - component: {fileID: 666956126}
   - component: {fileID: 666956125}
   - component: {fileID: 666956124}
-  - component: {fileID: 666956123}
   m_Layer: 0
   m_Name: World
   m_TagString: World
@@ -2222,21 +2221,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &666956123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666956122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb66d3b196346184283ddd4d9f5648e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  startTimeToDrop: 5
-  nextTimeToDrop: 1
 --- !u!114 &666956124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2257,6 +2241,8 @@ MonoBehaviour:
     type: 3}
   canvasPrefab: {fileID: 9195442784369587525, guid: 17290b546108c400ba0101b72b6d89b5,
     type: 3}
+  startTimeToDrop: 4
+  nextTimeToDrop: 1
 --- !u!114 &666956125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2869,7 +2855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 51
 --- !u!54 &765268405
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3458,7 +3444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 61
 --- !u!54 &882451696
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3581,7 +3567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 30
 --- !u!54 &954755191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3827,7 +3813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 2
 --- !u!54 &1027464886
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4196,7 +4182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 4
 --- !u!54 &1090669549
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4565,7 +4551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 50
 --- !u!54 &1189592575
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4811,7 +4797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 5
 --- !u!54 &1225193406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5303,7 +5289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 3
 --- !u!54 &1500964060
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5426,7 +5412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 10
 --- !u!54 &1636515277
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5672,7 +5658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 1
 --- !u!54 &1844449470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5918,7 +5904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 70
 --- !u!54 &1871987081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6041,7 +6027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 21
 --- !u!54 &1919524557
 Rigidbody:
   m_ObjectHideFlags: 0
