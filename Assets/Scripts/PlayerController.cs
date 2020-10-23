@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
 {
 
    public float boundary = 100f;
+   public float fallBoundary = 5f;
    public float maximumSpeed = 1000f;
    public Vector3 startPosition = new Vector3(3f, 50f, 0);
    Rigidbody r;
 
    private bool levelComplete = false;
+   private bool aboutToDie = false;
    public int gameCompleted = 0;
 
    public System.Action healthChanged;
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
    }
    public void ResetPosition()
    {
+      AudioManager.Instance.PlayReset();
       transform.position = startPosition;
    }
    public void ResetVelocity()
@@ -92,6 +95,11 @@ public class PlayerController : MonoBehaviour
 
       brakeDescend();
 
+      if (transform.position.y < fallBoundary * -1 && !aboutToDie && !levelComplete)
+      {
+         aboutToDie = true;
+         AudioManager.Instance.PlayFall();
+      }
       if (transform.position.y < boundary * -1)
       {
          if (!levelComplete)
@@ -129,6 +137,8 @@ public class PlayerController : MonoBehaviour
    {
       if (other.tag == "HexHidden")
       {
+
+         //AudioManager.Instance.PlayFall();
          other.GetComponent<DropController>().drop();
       }
       else if (other.tag == "Player")
@@ -146,6 +156,7 @@ public class PlayerController : MonoBehaviour
 
    void Respawn()
    {
+      aboutToDie = false;
       health--;
       if (health < 1) EndGame();
       else ResetPosition();
@@ -155,6 +166,7 @@ public class PlayerController : MonoBehaviour
       levelComplete = true;
       r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
       AudioManager.Instance.PlayLevelClear();
+      //AudioManager.Instance.PlayDeath();
       health++;
       //Invoke("LoadNextLevel", 2f);
    }
@@ -163,6 +175,7 @@ public class PlayerController : MonoBehaviour
    {
       levelComplete = false;
       int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+
       if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
       {
          gameCompleted++;

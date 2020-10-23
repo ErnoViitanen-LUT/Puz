@@ -12,9 +12,12 @@ public class AudioManager : MonoBehaviour
    public bool musicOn = true;
    public AudioClip footStep;
    public AudioClip levelClear;
+   public AudioClip flashlight;
    public AudioClip[] jumpStart;
    public AudioClip[] jumpEnd;
+   public AudioClip[] fall;
    public AudioClip[] boulders;
+   public AudioClip[] effect;
 
    public AudioClip[] menu;
 
@@ -96,5 +99,25 @@ public class AudioManager : MonoBehaviour
    public void PlayMenuPressed()
    {
       menuSource.PlayOneShot(menu[1]);
+   }
+   public void PlayReset()
+   {
+      effectSource.PlayOneShot(effect[4]);
+   }
+   public void PlayEffect1()
+   {
+      menuSource.PlayOneShot(effect[1]);
+   }
+   public void PlayDeath()
+   {
+      menuSource.PlayOneShot(effect[3]);
+   }
+   public void PlayFall()
+   {
+      effectSource.PlayOneShot(fall[Random.Range(0, fall.Length)]);
+   }
+   public void PlayFlashlight()
+   {
+      effectSource.PlayOneShot(flashlight);
    }
 }

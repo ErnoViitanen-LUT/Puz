@@ -47,16 +47,26 @@ MonoBehaviour:
   musicOn: 1
   footStep: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
   levelClear: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
+  flashlight: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
   jumpStart:
   - {fileID: 8300000, guid: d2e675d6622d24295abe6c09d92ecf38, type: 3}
   - {fileID: 8300000, guid: 99ce5cbfa1a894627b79ea51f715bfc3, type: 3}
   jumpEnd:
   - {fileID: 8300000, guid: e3285200501f84c55a648a8b8862b722, type: 3}
+  fall:
+  - {fileID: 8300000, guid: 53dc8d17437094c7ca5a792209a9db2f, type: 3}
+  - {fileID: 8300000, guid: 086351fa12b1f436ba9b4de959e4ee02, type: 3}
   boulders:
   - {fileID: 8300000, guid: 480d250a526eae247b836dc749f0f95e, type: 3}
   - {fileID: 8300000, guid: 7d50e90f8f6db014d9509984638b82f0, type: 3}
   - {fileID: 8300000, guid: 63b725c0263025b49a67a57aca259c51, type: 3}
   - {fileID: 8300000, guid: 9d8209a0af0f2854ea0ae0a889688557, type: 3}
+  effect:
+  - {fileID: 8300000, guid: ff9c732995023ad40a6a8730d343fddc, type: 3}
+  - {fileID: 8300000, guid: e40e708739aacec44887fc7ed7a2a7d8, type: 3}
+  - {fileID: 8300000, guid: 219dade204be9834797d14ef4819e19d, type: 3}
+  - {fileID: 8300000, guid: a26e6bd92bfd6c043b21647e3bc62aa2, type: 3}
+  - {fileID: 8300000, guid: a931da70ee74947d5a047de583170ade, type: 3}
   menu:
   - {fileID: 8300000, guid: 1cbfa67f2f0d3e94a81737cac1c78391, type: 3}
   - {fileID: 8300000, guid: 53c203a356407fc438f70849d5b3a653, type: 3}
