@@ -14,8 +14,10 @@ public class MenuController : MonoBehaviour
 
    void Start()
    {
-      if (!GameObject.FindGameObjectWithTag("AudioManager"))
-         audioManager = Instantiate(audioManagerPrefab).GetComponent<AudioManager>();
+      GameObject manager = GameObject.FindGameObjectWithTag("AudioManager");
+      if (!manager)
+         manager = Instantiate(audioManagerPrefab);
+      audioManager = manager.GetComponent<AudioManager>();
    }
 
    // Update is called once per frame

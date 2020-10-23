@@ -2241,6 +2241,8 @@ MonoBehaviour:
     type: 3}
   canvasPrefab: {fileID: 9195442784369587525, guid: 17290b546108c400ba0101b72b6d89b5,
     type: 3}
+  particlePrefab: {fileID: 1404057744696679456, guid: 9bb70e7bbb57c47e7b231255cc567eaf,
+    type: 3}
   startTimeToDrop: 4
   nextTimeToDrop: 1
 --- !u!114 &666956125

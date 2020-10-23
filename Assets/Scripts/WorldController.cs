@@ -13,10 +13,13 @@ public class WorldController : MonoBehaviour
    public GameObject playerPrefab;
    public GameObject audioManagerPrefab;
    public GameObject canvasPrefab;
+   public GameObject particlePrefab;
    GameObject player;
    PlayerController playerController;
    CameraController cameraController;
    GameObject canvas;
+
+   GameObject particle;
    CanvasController canvasController;
 
 
@@ -63,7 +66,6 @@ public class WorldController : MonoBehaviour
       {
          GameObject[] targets = GameObject.FindGameObjectsWithTag("HexTarget");
 
-         Debug.Log(targets.Length);
          target = targets[Random.Range(0, targets.Length)];
 
          //target = GameObject.FindGameObjectWithTag("HexTarget");
@@ -73,6 +75,13 @@ public class WorldController : MonoBehaviour
          MeshCollider collider = target.GetComponent<MeshCollider>();
          collider.convex = true;
          collider.isTrigger = true;
+
+
+         particle = Instantiate(particlePrefab);
+         particle.transform.parent = target.transform;
+
+         particle.transform.position += target.transform.position;
+         //particle.transform.position = target.transform.position;
 
          foreach (var item in GameObject.FindGameObjectsWithTag("HexHidden"))
          {

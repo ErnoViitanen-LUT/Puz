@@ -61,4 +61,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1cbfa67f2f0d3e94a81737cac1c78391, type: 3}
   - {fileID: 8300000, guid: 53c203a356407fc438f70849d5b3a653, type: 3}
   musicVolume: 0.8
+  menuVolume: 0.1
   effectsVolume: 0.8

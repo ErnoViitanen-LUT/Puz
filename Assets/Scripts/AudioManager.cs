@@ -19,11 +19,13 @@ public class AudioManager : MonoBehaviour
    public AudioClip[] menu;
 
    public float musicVolume = 0.8f;
+   public float menuVolume = 0.1f;
    public float effectsVolume = 0.8f;
 
    AudioSource musicSource;
    AudioSource footStepSource;
    AudioSource effectSource;
+   AudioSource menuSource;
    private void Awake()
    {
       if (_instance != null && _instance != this)
@@ -45,6 +47,10 @@ public class AudioManager : MonoBehaviour
          footStepSource = gameObject.AddComponent<AudioSource>();
          footStepSource.clip = footStep;
          footStepSource.volume = effectsVolume;
+
+         menuSource = gameObject.AddComponent<AudioSource>();
+         menuSource.volume = menuVolume;
+
          DontDestroyOnLoad(transform.gameObject);
          PlayMusic();
       }
@@ -85,10 +91,10 @@ public class AudioManager : MonoBehaviour
    }
    public void PlayMenuSelected()
    {
-      effectSource.PlayOneShot(menu[0]);
+      menuSource.PlayOneShot(menu[0]);
    }
    public void PlayMenuPressed()
    {
-      effectSource.PlayOneShot(menu[1]);
+      menuSource.PlayOneShot(menu[1]);
    }
 }

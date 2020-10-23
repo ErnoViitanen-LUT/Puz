@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
    {
       Debug.Log("TriggerExit" + gameObject.name + " with " + other.name);
 
-      if (other.tag == "HexTarget")
+      if (other.tag == "HexTarget" && !levelComplete)
       {
          CompleteLevel();
       }
