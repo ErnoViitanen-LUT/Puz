@@ -13,8 +13,10 @@ public class WorldController : MonoBehaviour
    public GameObject audioManagerPrefab;
    public GameObject canvasPrefab;
    GameObject player;
+   PlayerController playerController;
    CameraController cameraController;
    GameObject canvas;
+   CanvasController canvasController;
 
 
    public float startTimeToDrop = 5f;
@@ -26,7 +28,7 @@ public class WorldController : MonoBehaviour
          Instantiate(audioManagerPrefab);
 
       canvas = Instantiate(canvasPrefab);
-
+      canvasController = canvas.GetComponent<CanvasController>();
       cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
 
       player = GameObject.FindGameObjectWithTag("Player");
@@ -35,11 +37,13 @@ public class WorldController : MonoBehaviour
       {
          player = Instantiate(playerPrefab);
       }
+      playerController = player.GetComponent<PlayerController>();
 
       TimeController timeController = gameObject.AddComponent<TimeController>();
       timeController.startTimeToDrop = startTimeToDrop;
       timeController.nextTimeToDrop = nextTimeToDrop;
-      timeController.text = canvas.GetComponentInChildren<UnityEngine.UI.Text>().gameObject;
+
+      timeController.timeControl = canvasController.time;
 
       cameraController.player = player;
 
@@ -72,9 +76,20 @@ public class WorldController : MonoBehaviour
             coll.convex = true;
             coll.isTrigger = true;
          }
-         PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-         player.Reset();
+
+         playerController.Reset();
       }
+      SetHealth(playerController.health);
+   }
+
+   public void SetHealth(int health)
+   {
+      string healthText = "";
+      for (int i = 0; i < health; i++)
+      {
+         healthText += "O ";
+      }
+      canvasController.health.text = healthText;
    }
 
 }

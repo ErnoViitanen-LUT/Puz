@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class TimeController : MonoBehaviour
 {
 
    //[HideInInspector]
-   public GameObject text;
-   UnityEngine.UI.Text time;
+   public Text timeControl;
 
    float timer;
    bool timeStarted = true;
@@ -29,7 +28,7 @@ public class TimeController : MonoBehaviour
       world = gameObject.GetComponent<WorldController>();
 
       player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-      time = text.GetComponent<UnityEngine.UI.Text>();
+
       if (player.gameCompleted > 1)
       {
          startTimeToDrop /= 2;
@@ -83,7 +82,7 @@ public class TimeController : MonoBehaviour
       string seconds = (timer % 60).ToString("00");
 
       //GUI.Label(new Rect(10,10,250,100), minutes + ":" + Mathf.RoundToInt(seconds));
-      time.text = FloatToTime(timer, "#0:00.0");
+      timeControl.text = "G " + FloatToTime(timer, "#0:00:0");
    }
    public string FloatToTime(float toConvert, string format)
    {
@@ -123,8 +122,8 @@ public class TimeController : MonoBehaviour
                Mathf.Floor(toConvert / 60),//minutes
                Mathf.Floor(toConvert) % 60,//seconds
                Mathf.Floor((toConvert * 10) % 10));//miliseconds
-         case "#0:00.0":
-            return string.Format("{0:#0}:{1:00}.{2:0}",
+         case "#0:00:0":
+            return string.Format("{0:#0}:{1:00}:{2:0}",
                Mathf.Floor(toConvert / 60),//minutes
                Mathf.Floor(toConvert) % 60,//seconds
                Mathf.Floor((toConvert * 10) % 10));//miliseconds

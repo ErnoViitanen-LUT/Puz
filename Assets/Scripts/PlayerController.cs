@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
    private bool levelComplete = false;
    public int gameCompleted = 0;
-
+   public int health = 1;
    private void Awake()
    {
 
@@ -78,26 +78,9 @@ public class PlayerController : MonoBehaviour
 
       if (transform.position.y < boundary * -1)
       {
-         if (!levelComplete)
-            transform.position = startPosition;
-         else
-         {
-            levelComplete = false;
-            int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-            //Debug.Log(nextScene + " " + SceneManager.sceneCountInBuildSettings);
-            if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
-            {
-               gameCompleted++;
-               gameObject.GetComponent<SimpleCharacterController>().easyMode = false;
-               SceneManager.LoadScene(1);
-            }
-            else SceneManager.LoadScene(nextScene);
-
-         }
-
-         //rigidbody.velocity = Vector3.zero;
-         //rigidbody.angularVelocity = Vector3.zero;
-
+         transform.position = startPosition;
+         if (!levelComplete) Respawn();
+         else LoadNextLevel();
       }
    }
 
@@ -106,8 +89,7 @@ public class PlayerController : MonoBehaviour
       float speed = Vector3.Magnitude(r.velocity);  // test current object speed
       if (speed > maximumSpeed && !levelComplete)
       {
-         float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease     
-         //Debug.Log("braking " + brakeSpeed);
+         float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease              
          r.AddForce(r.velocity * (-brakeSpeed / 10), ForceMode.Impulse);  // apply opposing brake force   
       }
    }
@@ -118,9 +100,7 @@ public class PlayerController : MonoBehaviour
 
       if (other.tag == "HexTarget")
       {
-         levelComplete = true;
-         r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
-         AudioManager.Instance.PlayLevelClear();
+         CompleteLevel();
       }
       //Destroy(gameObject);
       //Destroy(other);
@@ -159,4 +139,40 @@ public class PlayerController : MonoBehaviour
          //r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);
       }
    }
+
+
+   void Respawn()
+   {
+      health--;
+      if (health < 0) EndGame();
+   }
+   void CompleteLevel()
+   {
+      levelComplete = true;
+      r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
+      AudioManager.Instance.PlayLevelClear();
+      health++;
+      //Invoke("LoadNextLevel", 2f);
+   }
+
+   void LoadNextLevel()
+   {
+      levelComplete = false;
+      int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+      if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
+      {
+         gameCompleted++;
+         gameObject.GetComponent<SimpleCharacterController>().easyMode = false;
+         SceneManager.LoadScene(1);
+      }
+      else SceneManager.LoadScene(nextScene);
+   }
+
+   void EndGame()
+   {
+      Destroy(gameObject);
+      //Destroy(AudioManager.Instance);
+      SceneManager.LoadScene(0);
+   }
+
 }
