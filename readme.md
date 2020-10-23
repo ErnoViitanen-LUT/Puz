@@ -57,3 +57,16 @@ Make A Gorgeous Start Menu by Thomas Brush [YouTube](https://www.youtube.com/wat
 
 * Menu logic
 * Menu selection box
+   
+SciFi UI Sound FX by Bright Shining Star [Asset Store](https://assetstore.unity.com/packages/audio/sound-fx/scifi-ui-sound-fx-27282)
+
+* Menu sounds
+
+Lecompte Free Font by Andy Lobjois [Asset Store](https://assetstore.unity.com/packages/2d/fonts/lecompte-free-font-72173)
+
+* Game fonts (icons)
+
+Breaking A Wall Down (With A Hammer) by scampsie [Freesound](https://freesound.org/people/scampsie/sounds/417091/)
+
+* Boulder sounds
+

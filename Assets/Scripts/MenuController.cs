@@ -10,47 +10,47 @@ public class MenuController : MonoBehaviour
    public bool keyDown;
    public GameObject audioManagerPrefab;
    // Start is called before the first frame update
+   AudioManager audioManager;
+
    void Start()
    {
       if (!GameObject.FindGameObjectWithTag("AudioManager"))
-         Instantiate(audioManagerPrefab);
+         audioManager = Instantiate(audioManagerPrefab).GetComponent<AudioManager>();
    }
 
    // Update is called once per frame
    void Update()
    {
-      if (Input.GetAxis("Vertical") != 0)
+      if (Input.GetButtonDown("Submit"))
       {
-         if (!keyDown)
-         {
-            if (Input.GetAxis("Vertical") < 0)
-            {
-               if (index < maxIndex)
-               {
-                  index++;
-               }
-               else
-               {
-                  index = 0;
-               }
-            }
-            else if (Input.GetAxis("Vertical") > 0)
-            {
-               if (index > 0)
-               {
-                  index--;
-               }
-               else
-               {
-                  index = maxIndex;
-               }
-            }
-            keyDown = true;
-         }
+         audioManager.PlayMenuPressed();
       }
-      else
+
+      if (Input.GetButtonDown("Vertical"))
       {
-         keyDown = false;
+         audioManager.PlayMenuSelected();
+         if (Input.GetAxis("Vertical") < 0)
+         {
+            if (index < maxIndex)
+            {
+               index++;
+            }
+            else
+            {
+               index = 0;
+            }
+         }
+         else if (Input.GetAxis("Vertical") > 0)
+         {
+            if (index > 0)
+            {
+               index--;
+            }
+            else
+            {
+               index = maxIndex;
+            }
+         }
       }
    }
 }

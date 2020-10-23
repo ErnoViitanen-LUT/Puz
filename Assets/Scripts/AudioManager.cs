@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
    public AudioClip[] jumpEnd;
    public AudioClip[] boulders;
 
+   public AudioClip[] menu;
+
    public float musicVolume = 0.8f;
    public float effectsVolume = 0.8f;
 
@@ -80,5 +82,13 @@ public class AudioManager : MonoBehaviour
    public void PlayBoulder()
    {
       effectSource.PlayOneShot(boulders[Random.Range(0, boulders.Length)]);
+   }
+   public void PlayMenuSelected()
+   {
+      effectSource.PlayOneShot(menu[0]);
+   }
+   public void PlayMenuPressed()
+   {
+      effectSource.PlayOneShot(menu[1]);
    }
 }

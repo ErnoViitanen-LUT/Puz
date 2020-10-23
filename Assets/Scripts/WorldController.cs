@@ -92,6 +92,7 @@ public class WorldController : MonoBehaviour
       if (playerController.health > 5)
       {
          healthText = "O " + playerController.health;
+         //healthText = playerController.health + " O";
       }
       else
       {
@@ -112,6 +113,7 @@ public class WorldController : MonoBehaviour
       }*/
 
       levelText = "W " + currentScene;
+      //levelText = currentScene + " W";
       canvasController.level.text = levelText;
 
    }

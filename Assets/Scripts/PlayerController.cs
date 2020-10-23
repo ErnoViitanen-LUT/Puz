@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
    public int gameCompleted = 0;
 
    public System.Action healthChanged;
-   int _health;
+   [SerializeField]
+   private int _health;
    public int health
    {
       get { return _health; }
@@ -146,7 +147,7 @@ public class PlayerController : MonoBehaviour
    void Respawn()
    {
       health--;
-      if (health < 0) EndGame();
+      if (health < 1) EndGame();
       else ResetPosition();
    }
    void CompleteLevel()
