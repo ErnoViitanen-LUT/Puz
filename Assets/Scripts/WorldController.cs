@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WorldController : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class WorldController : MonoBehaviour
          player = Instantiate(playerPrefab);
       }
       playerController = player.GetComponent<PlayerController>();
+      playerController.healthChanged = new System.Action(SetHealth);
+      SetHealth();
+      SetLevel();
+      playerController.ResetPosition();
 
       TimeController timeController = gameObject.AddComponent<TimeController>();
       timeController.startTimeToDrop = startTimeToDrop;
@@ -77,19 +82,29 @@ public class WorldController : MonoBehaviour
             coll.isTrigger = true;
          }
 
-         playerController.Reset();
+         playerController.ResetVelocity();
       }
-      SetHealth(playerController.health);
    }
 
-   public void SetHealth(int health)
+   public void SetHealth()
    {
       string healthText = "";
-      for (int i = 0; i < health; i++)
+      for (int i = 0; i < playerController.health; i++)
       {
          healthText += "O ";
       }
       canvasController.health.text = healthText;
+   }
+   public void SetLevel()
+   {
+      string levelText = "";
+      int currentScene = SceneManager.GetActiveScene().buildIndex;
+      for (int i = 0; i < currentScene; i++)
+      {
+         levelText += "W ";
+      }
+      canvasController.level.text = levelText;
+
    }
 
 }

@@ -14,7 +14,19 @@ public class PlayerController : MonoBehaviour
 
    private bool levelComplete = false;
    public int gameCompleted = 0;
-   public int health = 1;
+
+   public System.Action healthChanged;
+   int _health;
+   public int health
+   {
+      get { return _health; }
+      set
+      {
+         _health = value;
+         Debug.Log("health changed to " + _health);
+         healthChanged();
+      }
+   }
    private void Awake()
    {
 
@@ -23,9 +35,10 @@ public class PlayerController : MonoBehaviour
    void Start()
    {
       Debug.Log("Start");
+      health = 1;
       r = GetComponent<Rigidbody>();
       //audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-      Reset();
+      ResetVelocity();
 
       //audioSource.clip = audioTarget;
 
@@ -40,13 +53,15 @@ public class PlayerController : MonoBehaviour
       }
       */
    }
-   public void Reset()
+   public void ResetPosition()
    {
-
+      transform.position = startPosition;
+   }
+   public void ResetVelocity()
+   {
       r.velocity = Vector3.zero;
       transform.gameObject.GetComponent<SimpleCharacterController>().Reset();
       r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
-
    }
 
    IEnumerator Upload()
@@ -78,8 +93,11 @@ public class PlayerController : MonoBehaviour
 
       if (transform.position.y < boundary * -1)
       {
-         transform.position = startPosition;
-         if (!levelComplete) Respawn();
+         if (!levelComplete)
+         {
+            Respawn();
+         }
+
          else LoadNextLevel();
       }
    }
@@ -111,17 +129,6 @@ public class PlayerController : MonoBehaviour
       if (other.tag == "HexHidden")
       {
          other.GetComponent<DropController>().drop();
-         /*Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
-         int r1 = Random.Range(1, 30);
-         int r2 = Random.Range(1, 30);
-         int r3 = Random.Range(1, 30);
-
-         other.GetComponent<MeshCollider>().isTrigger = false;
-         other.GetComponent<MeshCollider>().convex = true;
-         Rigidbody r = other.GetComponent<Rigidbody>();
-
-         r.isKinematic = false;
-         r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);*/
       }
       else if (other.tag == "Player")
       {
@@ -129,14 +136,9 @@ public class PlayerController : MonoBehaviour
          int r1 = Random.Range(1, 30);
          int r2 = Random.Range(1, 30);
          int r3 = Random.Range(1, 30);
-
-         //other.GetComponent<MeshCollider>().isTrigger = false;
-         //other.GetComponent<MeshCollider>().convex = true;
          Rigidbody r = other.GetComponent<Rigidbody>();
 
-         //r.isKinematic = false;
          r.AddForce(Vector3.forward * 10, ForceMode.Impulse);
-         //r.AddTorque(new Vector3(r1, r2, r3), ForceMode.Impulse);
       }
    }
 
@@ -145,6 +147,7 @@ public class PlayerController : MonoBehaviour
    {
       health--;
       if (health < 0) EndGame();
+      else ResetPosition();
    }
    void CompleteLevel()
    {
