@@ -89,20 +89,29 @@ public class WorldController : MonoBehaviour
    public void SetHealth()
    {
       string healthText = "";
-      for (int i = 0; i < playerController.health; i++)
+      if (playerController.health > 5)
       {
-         healthText += "O ";
+         healthText = "O " + playerController.health;
+      }
+      else
+      {
+         for (int i = 0; i < playerController.health; i++)
+         {
+            healthText += "O ";
+         }
       }
       canvasController.health.text = healthText;
    }
    public void SetLevel()
    {
       string levelText = "";
-      int currentScene = SceneManager.GetActiveScene().buildIndex;
-      for (int i = 0; i < currentScene; i++)
+      int currentScene = SceneManager.GetActiveScene().buildIndex + (SceneManager.sceneCountInBuildSettings - 1) * playerController.gameCompleted;
+      /*for (int i = 0; i < currentScene; i++)
       {
          levelText += "W ";
-      }
+      }*/
+
+      levelText = "W " + currentScene;
       canvasController.level.text = levelText;
 
    }
