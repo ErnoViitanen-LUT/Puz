@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
    private bool aboutToDie = false;
    public int gameCompleted = 0;
 
+   public GameObject pausePrefab;
    public System.Action healthChanged;
    [SerializeField]
    private int _health;
@@ -93,7 +94,25 @@ public class PlayerController : MonoBehaviour
    void Update()
    {
 
-      brakeDescend();
+      if (Input.GetButtonDown("Cancel"))
+      {
+         GameObject pause = GameObject.FindGameObjectWithTag("Pause");
+         if (pause)
+         {
+            Time.timeScale = 1;
+            Destroy(pause);
+         }
+         else
+         {
+            Time.timeScale = 0;
+            Instantiate(pausePrefab);
+         }
+
+      }
+      if (Time.timeScale == 1f)
+      {
+         brakeDescend();
+      }
 
       if (transform.position.y < fallBoundary * -1 && !aboutToDie && !levelComplete)
       {
@@ -116,7 +135,8 @@ public class PlayerController : MonoBehaviour
       float speed = Vector3.Magnitude(r.velocity);  // test current object speed
       if (speed > maximumSpeed && !levelComplete)
       {
-         float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease              
+         float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease  
+         Debug.Log("brake");
          r.AddForce(r.velocity * (-brakeSpeed / 10), ForceMode.Impulse);  // apply opposing brake force   
       }
    }

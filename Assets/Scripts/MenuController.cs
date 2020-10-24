@@ -31,7 +31,8 @@ public class MenuController : MonoBehaviour
       if (Input.GetButtonDown("Vertical"))
       {
          audioManager.PlayMenuSelected();
-         if (Input.GetAxis("Vertical") < 0)
+
+         if (Input.GetAxisRaw("Vertical") < 0)
          {
             if (index < maxIndex)
             {
@@ -42,7 +43,7 @@ public class MenuController : MonoBehaviour
                index = 0;
             }
          }
-         else if (Input.GetAxis("Vertical") > 0)
+         else if (Input.GetAxisRaw("Vertical") > 0)
          {
             if (index > 0)
             {
