@@ -2577,7 +2577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 15
+  dropIndex: 0
 --- !u!1 &314439585
 GameObject:
   m_ObjectHideFlags: 0
@@ -6782,7 +6782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 15
 --- !u!1 &717344975
 GameObject:
   m_ObjectHideFlags: 0
@@ -10275,8 +10275,8 @@ MonoBehaviour:
     type: 3}
   particlePrefab: {fileID: 1404057744696679456, guid: 9bb70e7bbb57c47e7b231255cc567eaf,
     type: 3}
-  startTimeToDrop: 2
-  nextTimeToDrop: 0.12
+  startTimeToDrop: 3
+  nextTimeToDrop: 0.4
 --- !u!114 &1067046927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13781,7 +13781,7 @@ GameObject:
   - component: {fileID: 1591702322}
   m_Layer: 0
   m_Name: Hexagon20|2
-  m_TagString: Untagged
+  m_TagString: HexHidden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17090,7 +17090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 22
+  dropIndex: 0
 --- !u!1 &2021860555
 GameObject:
   m_ObjectHideFlags: 0
@@ -18309,7 +18309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca62bd5d38730204e9e4f5a5ba2836ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropIndex: 0
+  dropIndex: 16
 --- !u!1 &2107086274
 GameObject:
   m_ObjectHideFlags: 0
