@@ -9,20 +9,30 @@ public class LevelLoader : MonoBehaviour
    public Text level;
    public Text mode;
    // Start is called before the first frame update
+
+   string nextLevel = "Level1";
    void Start()
    {
 
-      level.text = LevelManager.Instance.levelName;
-      if (LevelManager.Instance.nextLevel == "MainMenu")
+      level.text = LevelManager.Instance.levelName();
+      nextLevel = LevelManager.Instance.nextLevel;
+      if (nextLevel == "MainMenu")
       {
          mode.text = "";
+         GameObject player = GameObject.FindGameObjectWithTag("Player");
+         if (player) Destroy(player.GetComponent<PlayerController>().gameObject);
+
+         Destroy(LevelManager.Instance.gameObject);
          Invoke("LoadLevel", 5f);
       }
       else
       {
-         if (LevelManager.Instance.easyMode)
-            mode.text = "Normal";
-         else mode.text = "Hard";
+         if (LevelManager.Instance.gameCompleted == 0)
+            mode.text = "easy";
+         else if (LevelManager.Instance.gameCompleted == 1)
+            mode.text = "hard";
+         else
+            mode.text = "very hard";
 
          Invoke("LoadLevel", 2f);
       }
@@ -30,6 +40,6 @@ public class LevelLoader : MonoBehaviour
 
    void LoadLevel()
    {
-      SceneManager.LoadScene(LevelManager.Instance.nextLevel);
+      SceneManager.LoadScene(nextLevel);
    }
 }

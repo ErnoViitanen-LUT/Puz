@@ -9,8 +9,7 @@ public class LevelManager : MonoBehaviour
    private static LevelManager _instance;
 
    public static LevelManager Instance { get { return _instance; } }
-   public int level = 1;
-   public string levelName;
+   public int level;
    public string nextLevel;
    public bool levelComplete = false;
    public int gameCompleted = 0;
@@ -29,12 +28,13 @@ public class LevelManager : MonoBehaviour
       {
          _instance = this;
          levels = new List<string>();
+         easyMode = true;
          levels.Add("MainMenu");
          for (int i = 1; i < 7 + 1; i++)
          {
             levels.Add("Level" + i);
          }
-         levelName = levels[level];
+         SetCurrentLevel();
          DontDestroyOnLoad(transform.gameObject);
          /*
          if (SceneManager.GetActiveScene().name == "LevelLoader")
@@ -55,9 +55,7 @@ public class LevelManager : MonoBehaviour
    public void StartGame()
    {
       level = 1;
-      levelName = "Level " + level;
       nextLevel = levels[level];
-      Debug.Log("LevelManager load " + levels[level]);
       SceneManager.LoadScene("LevelLoader");
    }
    public void LoadNextLevel()
@@ -66,21 +64,50 @@ public class LevelManager : MonoBehaviour
       level++;
       if (level > 7)
       {
+
          level = 1;
          gameCompleted++;
          easyMode = false;
-
       }
-      levelName = "Level " + level;
       nextLevel = levels[level];
+
+      if (gameCompleted > 2)
+      {
+         level = 0;
+         nextLevel = "MainMenu";
+      }
+
       SceneManager.LoadScene("LevelLoader");
    }
    public void GameOver()
    {
-      level = 0;
-      levelName = "Game Over";
+      level = -1;
       nextLevel = levels[level];
       SceneManager.LoadScene("LevelLoader");
+   }
+   public void MainMenu()
+   {
+      SceneManager.LoadScene("MainMenu");
+   }
+
+   void SetCurrentLevel()
+   {
+      level = SceneManager.GetActiveScene().buildIndex - 1;
+      if (level < 0) level = 1;
+
+   }
+
+   public string levelName()
+   {
+      if (level < 0)
+      {
+         return "game over";
+      }
+      else if (level == 0)
+      {
+         return "you have completed the game";
+      }
+      else return "level " + level;
    }
 
    /*   void LoadNextLevel1()

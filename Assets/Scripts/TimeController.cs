@@ -24,7 +24,6 @@ public class TimeController : MonoBehaviour
    void Start()
    {
 
-      Debug.Log("start timecontroller");
       world = gameObject.GetComponent<WorldController>();
 
       player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();

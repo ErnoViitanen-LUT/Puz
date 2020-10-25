@@ -52,8 +52,6 @@ public class MenuButton : MonoBehaviour
    }
    void ButtonPress()
    {
-      Debug.Log("pressed " + thisIndex + " " + gameObject.name);
-
       GameObject pause = GameObject.FindGameObjectWithTag("Pause");
       GameObject player = GameObject.FindGameObjectWithTag("Player");
       switch (gameObject.name)
@@ -77,6 +75,7 @@ public class MenuButton : MonoBehaviour
             Time.timeScale = 1f;
             Destroy(pause);
             Destroy(player);
+            LevelManager.Instance.MainMenu();
             //SceneManager.LoadScene(0);
             break;
       }

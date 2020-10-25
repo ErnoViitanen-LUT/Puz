@@ -44,5 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  levelName: 
+  nextLevel: 
+  levelComplete: 0
+  gameCompleted: 0
   easyMode: 1
+  betweenLevels: 0
+  levels: []

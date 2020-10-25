@@ -29,7 +29,6 @@ public class WorldController : MonoBehaviour
 
    void Start()
    {
-      Debug.Log("Start World");
       if (!GameObject.FindGameObjectWithTag("AudioManager"))
          Instantiate(audioManagerPrefab);
 
@@ -66,7 +65,6 @@ public class WorldController : MonoBehaviour
 
       cameraController.player = player;
 
-      // assign the material to the renderer
 
    }
 
@@ -79,9 +77,6 @@ public class WorldController : MonoBehaviour
 
          target = targets[Random.Range(0, targets.Length)];
 
-         //target = GameObject.FindGameObjectWithTag("HexTarget");
-         //Debug.Log(target.name);
-
          target.GetComponent<Renderer>().material = targetMaterial;
          MeshCollider collider = target.GetComponent<MeshCollider>();
          collider.convex = true;
@@ -92,7 +87,6 @@ public class WorldController : MonoBehaviour
          particle.transform.parent = target.transform;
 
          particle.transform.position += target.transform.position;
-         //particle.transform.position = target.transform.position;
 
          foreach (var item in GameObject.FindGameObjectsWithTag("HexHidden"))
          {

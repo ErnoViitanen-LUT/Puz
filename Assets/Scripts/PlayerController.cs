@@ -26,18 +26,15 @@ public class PlayerController : MonoBehaviour
       set
       {
          _health = value;
-         Debug.Log("health changed to " + _health);
          healthChanged();
       }
    }
    private void Awake()
    {
 
-      Debug.Log("Awake");
    }
    void Start()
    {
-      Debug.Log("Start");
       health = 1;
       r = GetComponent<Rigidbody>();
       //audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
@@ -93,32 +90,21 @@ public class PlayerController : MonoBehaviour
 
    }
 
-   IEnumerator Upload()
-   {
-      List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-      formData.Add(new MultipartFormDataSection("field1=foo&field2=bar"));
-      formData.Add(new MultipartFormFileSection("my file data", "myfile.txt"));
-
-      UnityWebRequest www = UnityWebRequest.Get("https://api.cgiaws.com/test/demo/web/mobile");
-      www.SetRequestHeader("Authorization", "APIKEY");
-      yield return www.SendWebRequest();
-
-      if (www.isNetworkError || www.isHttpError)
-      {
-         Debug.Log(www.error);
-      }
-      else
-      {
-         Debug.Log(www.responseCode + " " + www.downloadHandler.text);
-         Debug.Log("Form upload complete!");
-      }
-   }
-
    // Update is called once per frame
    void Update()
    {
       if (!LevelManager.Instance.betweenLevels)
       {
+         if (Input.GetKeyDown(KeyCode.K))
+         {
+            foreach (GameObject item in GameObject.FindGameObjectsWithTag("HexTarget"))
+            {
+               if (item.transform.childCount > 0)
+                  transform.position = item.transform.position + new Vector3(0, 1f, 0.5f);
+               //if(item.GetComponentInChildren)
+            }
+            //transform.position = GameObject.FindGameObjectWithTag("HexTarget").gameObject.transform.position + new Vector3(0, 1f, 0.5f);
+         }
          if (Input.GetButtonDown("Cancel"))
          {
             GameObject pause = GameObject.FindGameObjectWithTag("Pause");
