@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Red
+  m_Name: FrostedGlass
   m_Shader: {fileID: 4800000, guid: a3a009b9a31854ae6b45b97f810797d1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

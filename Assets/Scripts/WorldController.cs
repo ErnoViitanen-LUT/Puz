@@ -14,6 +14,7 @@ public class WorldController : MonoBehaviour
    public GameObject audioManagerPrefab;
    public GameObject canvasPrefab;
    public GameObject particlePrefab;
+   public GameObject LevelManagerPrefab;
    GameObject player;
    PlayerController playerController;
    CameraController cameraController;
@@ -28,6 +29,7 @@ public class WorldController : MonoBehaviour
 
    void Start()
    {
+      Debug.Log("Start World");
       if (!GameObject.FindGameObjectWithTag("AudioManager"))
          Instantiate(audioManagerPrefab);
 
@@ -45,7 +47,16 @@ public class WorldController : MonoBehaviour
       playerController.healthChanged = new System.Action(SetHealth);
       SetHealth();
       SetLevel();
-      playerController.ResetPosition();
+      playerController.StartPosition();
+      playerController.levelComplete = false;
+
+      if (!LevelManager.Instance)
+         Instantiate(LevelManagerPrefab);
+      else
+      {
+         LevelManager.Instance.betweenLevels = false;
+      }
+
 
       TimeController timeController = gameObject.AddComponent<TimeController>();
       timeController.startTimeToDrop = startTimeToDrop;
@@ -115,7 +126,7 @@ public class WorldController : MonoBehaviour
    public void SetLevel()
    {
       string levelText = "";
-      int currentScene = SceneManager.GetActiveScene().buildIndex + (SceneManager.sceneCountInBuildSettings - 1) * playerController.gameCompleted;
+      int currentScene = SceneManager.GetActiveScene().buildIndex - 1; //+ (SceneManager.sceneCountInBuildSettings - 2) * playerController.gameCompleted;
       /*for (int i = 0; i < currentScene; i++)
       {
          levelText += "W ";

@@ -9,6 +9,7 @@ TagManager:
   - AudioManager
   - World
   - Pause
+  - LevelManager
   layers:
   - Default
   - TransparentFX

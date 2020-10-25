@@ -13,9 +13,8 @@ public class PlayerController : MonoBehaviour
    public Vector3 startPosition = new Vector3(3f, 50f, 0);
    Rigidbody r;
 
-   private bool levelComplete = false;
+   public bool levelComplete = false;
    private bool aboutToDie = false;
-   public int gameCompleted = 0;
 
    public GameObject pausePrefab;
    public System.Action healthChanged;
@@ -42,7 +41,7 @@ public class PlayerController : MonoBehaviour
       health = 1;
       r = GetComponent<Rigidbody>();
       //audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-      ResetVelocity();
+      //StartPosition();
 
       //audioSource.clip = audioTarget;
 
@@ -57,16 +56,41 @@ public class PlayerController : MonoBehaviour
       }
       */
    }
-   public void ResetPosition()
+   public void StartPosition()
    {
-      AudioManager.Instance.PlayReset();
+      levelComplete = false;
+      ResetPosition(true);
+      StartVelocity();
+      UpdateGameStatus();
+
+   }
+
+   public void StartVelocity()
+   {
+
+      if (r)
+      {
+         r.velocity = Vector3.zero;
+
+         transform.gameObject.GetComponent<SimpleCharacterController>().Reset();
+         r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
+      }
+   }
+   public void ResetPosition(bool playAudio)
+   {
+      if (playAudio)
+         AudioManager.Instance.PlayReset();
       transform.position = startPosition;
    }
    public void ResetVelocity()
    {
-      r.velocity = Vector3.zero;
-      transform.gameObject.GetComponent<SimpleCharacterController>().Reset();
-      r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
+      if (r)
+      {
+         r.velocity = Vector3.zero;
+         transform.gameObject.GetComponent<SimpleCharacterController>().Reset();
+         r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
+      }
+
    }
 
    IEnumerator Upload()
@@ -93,40 +117,42 @@ public class PlayerController : MonoBehaviour
    // Update is called once per frame
    void Update()
    {
-
-      if (Input.GetButtonDown("Cancel"))
+      if (!LevelManager.Instance.betweenLevels)
       {
-         GameObject pause = GameObject.FindGameObjectWithTag("Pause");
-         if (pause)
+         if (Input.GetButtonDown("Cancel"))
          {
-            Time.timeScale = 1;
-            Destroy(pause);
+            GameObject pause = GameObject.FindGameObjectWithTag("Pause");
+            if (pause)
+            {
+               Time.timeScale = 1;
+               Destroy(pause);
+            }
+            else
+            {
+               Time.timeScale = 0;
+               Instantiate(pausePrefab);
+            }
+
          }
-         else
+         if (Time.timeScale == 1f)
          {
-            Time.timeScale = 0;
-            Instantiate(pausePrefab);
-         }
-
-      }
-      if (Time.timeScale == 1f)
-      {
-         brakeDescend();
-      }
-
-      if (transform.position.y < fallBoundary * -1 && !aboutToDie && !levelComplete)
-      {
-         aboutToDie = true;
-         AudioManager.Instance.PlayFall();
-      }
-      if (transform.position.y < boundary * -1)
-      {
-         if (!levelComplete)
-         {
-            Respawn();
+            brakeDescend();
          }
 
-         else LoadNextLevel();
+         if (transform.position.y < fallBoundary * -1 && !aboutToDie && !levelComplete)
+         {
+            aboutToDie = true;
+            AudioManager.Instance.PlayFall();
+         }
+         if (transform.position.y < boundary * -1)
+         {
+            if (!levelComplete)
+            {
+               Respawn();
+            }
+
+            else LoadNextLevel();
+         }
       }
    }
 
@@ -136,7 +162,6 @@ public class PlayerController : MonoBehaviour
       if (speed > maximumSpeed && !levelComplete)
       {
          float brakeSpeed = speed - maximumSpeed;  // calculate the speed decrease  
-         Debug.Log("brake");
          r.AddForce(r.velocity * (-brakeSpeed / 10), ForceMode.Impulse);  // apply opposing brake force   
       }
    }
@@ -178,38 +203,45 @@ public class PlayerController : MonoBehaviour
    {
       aboutToDie = false;
       health--;
-      if (health < 1) EndGame();
-      else ResetPosition();
+      if (health < 1) GameOver();
+      else ResetPosition(true);
    }
    void CompleteLevel()
    {
       levelComplete = true;
       r.AddForce(Vector3.down * 2000, ForceMode.Impulse);
       AudioManager.Instance.PlayLevelClear();
-      //AudioManager.Instance.PlayDeath();
       health++;
-      //Invoke("LoadNextLevel", 2f);
-   }
 
-   void LoadNextLevel()
+   }
+   public void Reset()
    {
       levelComplete = false;
-      int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+   }
+   void GameOver()
+   {
+      Destroy(gameObject);
+      LevelManager.Instance.GameOver();
+   }
+   void LoadNextLevel()
+   {
+
+      LevelManager.Instance.LoadNextLevel();
+
+      /*int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
 
       if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
       {
          gameCompleted++;
-         gameObject.GetComponent<SimpleCharacterController>().easyMode = false;
+         
          SceneManager.LoadScene(1);
       }
-      else SceneManager.LoadScene(nextScene);
+      else SceneManager.LoadScene(nextScene);*/
    }
-
-   void EndGame()
+   void UpdateGameStatus()
    {
-      Destroy(gameObject);
-      //Destroy(AudioManager.Instance);
-      SceneManager.LoadScene(0);
+      if (LevelManager.Instance)
+         gameObject.GetComponent<SimpleCharacterController>().easyMode = LevelManager.Instance.easyMode;
    }
 
 }

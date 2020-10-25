@@ -2094,6 +2094,8 @@ MonoBehaviour:
     type: 3}
   particlePrefab: {fileID: 1404057744696679456, guid: 9bb70e7bbb57c47e7b231255cc567eaf,
     type: 3}
+  LevelManagerPrefab: {fileID: 5315016876928239330, guid: a73a864c7f0e947cb94c9f2902e1ce36,
+    type: 3}
   startTimeToDrop: 1
   nextTimeToDrop: 0.5
 --- !u!114 &1738446570

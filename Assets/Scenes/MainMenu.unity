@@ -392,6 +392,8 @@ MonoBehaviour:
   keyDown: 0
   audioManagerPrefab: {fileID: 6795144067265980895, guid: 280c196d369e44ad5aa72ef73d3daa23,
     type: 3}
+  LevelManagerPrefab: {fileID: 5315016876928239330, guid: a73a864c7f0e947cb94c9f2902e1ce36,
+    type: 3}
 --- !u!1001 &183002452
 PrefabInstance:
   m_ObjectHideFlags: 0

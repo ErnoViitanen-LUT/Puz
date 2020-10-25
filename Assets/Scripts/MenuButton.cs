@@ -59,7 +59,9 @@ public class MenuButton : MonoBehaviour
       switch (gameObject.name)
       {
          case "NewGame":
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
+            //SceneManager.LoadScene("LevelLoader");
+            LevelManager.Instance.StartGame();
             break;
          case "Options":
             break;
@@ -75,7 +77,7 @@ public class MenuButton : MonoBehaviour
             Time.timeScale = 1f;
             Destroy(pause);
             Destroy(player);
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
             break;
       }
    }

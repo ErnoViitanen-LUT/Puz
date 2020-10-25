@@ -23,8 +23,7 @@ public class SimpleCharacterController : MonoBehaviour
    [SerializeField] private Rigidbody m_rigidBody = null;
 
    [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
-
-   public bool easyMode = false;
+   public bool easyMode = true;
    private float m_currentV = 0;
    private float m_currentH = 0;
    private readonly float m_interpolation = 100;

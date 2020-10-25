@@ -29,7 +29,7 @@ public class TimeController : MonoBehaviour
 
       player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
-      if (player.gameCompleted > 1)
+      if (LevelManager.Instance.gameCompleted > 1)
       {
          startTimeToDrop /= 2;
          nextTimeToDrop /= 10;
@@ -64,7 +64,7 @@ public class TimeController : MonoBehaviour
    void UpdateHexDrop()
    {
 
-      if (player.gameCompleted > 0)
+      if (LevelManager.Instance.gameCompleted > 0)
       {
          timeToDrop -= Time.deltaTime;
          if (timeToDrop < 0 && sortedGrid.Count > 0)
