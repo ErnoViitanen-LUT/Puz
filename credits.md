@@ -72,7 +72,7 @@ Various game sound effects
 FREE Casual Game SFX Pack by Dustyroom
 
 
-Boulder sounds effects
+Boulder sound effects
 
 Breaking A Wall Down (With A Hammer) by scampsie 
 

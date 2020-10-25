@@ -120,7 +120,7 @@ public class WorldController : MonoBehaviour
    public void SetLevel()
    {
       string levelText = "";
-      int currentScene = SceneManager.GetActiveScene().buildIndex - 1; //+ (SceneManager.sceneCountInBuildSettings - 2) * playerController.gameCompleted;
+      int currentScene = SceneManager.GetActiveScene().buildIndex - 2; //+ (SceneManager.sceneCountInBuildSettings - 2) * playerController.gameCompleted;
       /*for (int i = 0; i < currentScene; i++)
       {
          levelText += "W ";

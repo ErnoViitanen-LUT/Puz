@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
       if (gameCompleted > 2)
       {
          level = 0;
-         nextLevel = "MainMenu";
+         nextLevel = "Credits";
       }
 
       SceneManager.LoadScene("LevelLoader");
@@ -92,7 +92,7 @@ public class LevelManager : MonoBehaviour
 
    void SetCurrentLevel()
    {
-      level = SceneManager.GetActiveScene().buildIndex - 1;
+      level = SceneManager.GetActiveScene().buildIndex - 2;
       if (level < 0) level = 1;
 
    }

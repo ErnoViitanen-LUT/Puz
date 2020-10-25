@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour
 
       level.text = LevelManager.Instance.levelName();
       nextLevel = LevelManager.Instance.nextLevel;
-      if (nextLevel == "MainMenu")
+      if (nextLevel == "MainMenu" || nextLevel == "Credits")
       {
          mode.text = "";
          GameObject player = GameObject.FindGameObjectWithTag("Player");
