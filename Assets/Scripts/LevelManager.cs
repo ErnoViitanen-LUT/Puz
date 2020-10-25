@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
    public void GameOver()
    {
       level = -1;
-      nextLevel = levels[level];
+      nextLevel = levels[0];
       SceneManager.LoadScene("LevelLoader");
    }
    public void MainMenu()
@@ -105,7 +105,7 @@ public class LevelManager : MonoBehaviour
       }
       else if (level == 0)
       {
-         return "you have completed the game";
+         return "the end";
       }
       else return "level " + level;
    }
