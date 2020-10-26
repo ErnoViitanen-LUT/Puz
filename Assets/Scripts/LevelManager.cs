@@ -36,11 +36,6 @@ public class LevelManager : MonoBehaviour
          }
          SetCurrentLevel();
          DontDestroyOnLoad(transform.gameObject);
-         /*
-         if (SceneManager.GetActiveScene().name == "LevelLoader")
-         {
-            Invoke("LoadNextLevel", 2f);
-         }*/
 
       }
 
@@ -92,7 +87,7 @@ public class LevelManager : MonoBehaviour
 
    void SetCurrentLevel()
    {
-      level = SceneManager.GetActiveScene().buildIndex - 2;
+      level = SceneManager.GetActiveScene().buildIndex - 3;
       if (level < 0) level = 1;
 
    }
@@ -109,26 +104,4 @@ public class LevelManager : MonoBehaviour
       }
       else return "level " + level;
    }
-
-   /*   void LoadNextLevel1()
-      {
-         levelComplete = false;
-         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-
-         if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
-         {
-            gameCompleted++;
-            gameObject.GetComponent<SimpleCharacterController>().easyMode = false;
-            SceneManager.LoadScene(1);
-         }
-         else SceneManager.LoadScene(nextScene);
-      }
-
-      void EndGame()
-      {
-         Destroy(gameObject);
-         //Destroy(AudioManager.Instance);
-         SceneManager.LoadScene(0);
-      }
-   */
 }

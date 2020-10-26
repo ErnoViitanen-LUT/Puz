@@ -37,21 +37,8 @@ public class PlayerController : MonoBehaviour
    {
       health = 1;
       r = GetComponent<Rigidbody>();
-      //audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-      //StartPosition();
-
-      //audioSource.clip = audioTarget;
-
       DontDestroyOnLoad(transform.gameObject);
 
-      //StartCoroutine(Upload());
-
-      /*
-      for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-      {
-            Debug.Log(i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
-      }
-      */
    }
    public void StartPosition()
    {
@@ -211,18 +198,7 @@ public class PlayerController : MonoBehaviour
    }
    void LoadNextLevel()
    {
-
       LevelManager.Instance.LoadNextLevel();
-
-      /*int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-
-      if (SceneManager.sceneCountInBuildSettings < nextScene + 1)
-      {
-         gameCompleted++;
-         
-         SceneManager.LoadScene(1);
-      }
-      else SceneManager.LoadScene(nextScene);*/
    }
    void UpdateGameStatus()
    {
