@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37312, g: 0.38074034, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,21 +233,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "P U Z\n\n\n\nGame Developed by Erno Viitanen\n\n\n\n\n\nS P E C I A L   T
-    H A N K S\n\n\n\nCharacter and character animation\n\nCharacter Pack: Free Sample
-    by Sypercyan\n\n\nHexagon blender modeling, Blender model to unity, Hexagon grid
-    generator\n\nCreating a Hexagon Grid in Unity by Cornelius Custard\n\n\nFloor
-    textures\n\n10 Texture Sets 'Industrial 02' by Angry Ant Entertainment\n \n\nDay
-    and night cycle\n\nSimplest possible day night cycle in Unity 5 by \xD8yvind Str\xF8msvik
-    (TwiiK)\n\n\nMenu background\n\nGrid hex hexagonal hexagon pattern by Coffee\n\n\nMenu
-    logic and selection box\n\nMake A Gorgeous Start Menu by Thomas Brush\n\n\nMenu
-    and game fonts\n\nBarkentina by Kiril\n\n\nOptions logic\n\nSettings Menu Unity
-    by Brackeys\n\n\nGame fonts and icons\n\nLecompte Free Font by Andy Lobjois\n\n\nMenu
-    sound effects\n\nSciFi UI Sound FX by Bright Shining Star\n\n\nFootstep sound
-    effects\n\nClassic footsteps SFX by Matthew Anett\n\n\nCharacter sound and effects\n\nVoice
-    of Heroes: Billy by Artefoley\n\n\nVarious game sound effects\n\nFREE Casual Game
-    SFX Pack by Dustyroom\n\n\nBoulder sound effects\n\nBreaking A Wall Down (With
-    A Hammer) by scampsie\n\n\nBackground music\n\nArt of Silence by Uniq (CC BY 4.0)\n"
+  m_Text: "P U Z\n\n\n\nGame Developed by Erno Viitanen\n\n\n\nS P E C I A L   T H
+    A N K S\n\n\n\n\nBeta Testers\n\nNiko, Riku, Sami, Isto\n\n\nCharacter and character
+    animation\n\nCharacter Pack: Free Sample by Sypercyan\n\n\nHexagon blender modeling,
+    Blender model to unity, Hexagon grid generator\n\nCreating a Hexagon Grid in Unity
+    by Cornelius Custard\n\n\nFloor textures\n\n10 Texture Sets 'Industrial 02' by
+    Angry Ant Entertainment\n \n\nDay and night cycle\n\nSimplest possible day night
+    cycle in Unity 5 by \xD8yvind Str\xF8msvik (TwiiK)\n\n\nMenu background\n\nGrid
+    hex hexagonal hexagon pattern by Coffee\n\n\nMenu logic and selection box\n\nMake
+    A Gorgeous Start Menu by Thomas Brush\n\n\nMenu and game fonts\n\nBarkentina by
+    Kiril\n\n\nOptions logic\n\nSettings Menu Unity by Brackeys\n\n\nGame fonts and
+    icons\n\nLecompte Free Font by Andy Lobjois\n\n\nMenu sound effects\n\nSciFi UI
+    Sound FX by Bright Shining Star\n\n\nFootstep sound effects\n\nClassic footsteps
+    SFX by Matthew Anett\n\n\nCharacter sound and effects\n\nVoice of Heroes: Billy
+    by Artefoley\n\n\nVarious game sound effects\n\nFREE Casual Game SFX Pack by Dustyroom\n\n\nBoulder
+    sound effects\n\nBreaking A Wall Down (With A Hammer) by scampsie\n\n\nBackground
+    music\n\nArt of Silence by Uniq (CC BY 4.0)"
 --- !u!222 &928373120
 CanvasRenderer:
   m_ObjectHideFlags: 0

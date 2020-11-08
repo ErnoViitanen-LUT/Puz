@@ -4,33 +4,40 @@ using UnityEngine;
 
 public class CreditsController : MonoBehaviour
 {
-    public Animator animator;
+   public Animator animator;
    public GameObject audioManagerPrefab;
    public GameObject LevelManagerPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        GameObject manager = GameObject.FindGameObjectWithTag("AudioManager");
+   // Start is called before the first frame update
+   void Start()
+   {
 
-        if (!manager)
-            manager = Instantiate(audioManagerPrefab);
+      GameObject manager = GameObject.FindGameObjectWithTag("AudioManager");
 
-        if (LevelManagerPrefab)
-            Instantiate(LevelManagerPrefab);
-    }
+      if (!manager)
+         manager = Instantiate(audioManagerPrefab);
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.anyKey && LevelManager.Instance.gameCompleted < 3){
-            animator.speed++;
-        }
-     
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)   {          
-            Destroy(LevelManager.Instance.gameObject);
-            Instantiate(LevelManagerPrefab);
-            LevelManager.Instance.MainMenu();
-        }
-    }
+      if (LevelManagerPrefab)
+         Instantiate(LevelManagerPrefab);
+   }
+
+   // Update is called once per frame
+   void Update()
+   {
+      if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && LevelManager.Instance.gameCompleted < 3)
+      {
+         animator.speed++;
+      }
+
+      if (Input.GetKeyDown(KeyCode.DownArrow) && LevelManager.Instance.gameCompleted < 3)
+      {
+         animator.speed--;
+      }
+
+      if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
+      {
+         Destroy(LevelManager.Instance.gameObject);
+         Instantiate(LevelManagerPrefab);
+         LevelManager.Instance.MainMenu();
+      }
+   }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class VersionController : MonoBehaviour
 {
 
-   string version = "0.0.4";
+   string version = "0.1.0";
    public GameObject text;
    // Start is called before the first frame update
    void Start()
