@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37312, g: 0.38074034, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -236,18 +236,18 @@ MonoBehaviour:
   m_Text: "P U Z\n\n\n\nGame Developed by Erno Viitanen\n\n\n\n\n\nS P E C I A L   T
     H A N K S\n\n\n\nCharacter and character animation\n\nCharacter Pack: Free Sample
     by Sypercyan\n\n\nHexagon blender modeling, Blender model to unity, Hexagon grid
-    generator\n\nCreating a Hexagon Grid in Unity by Cornelius Custard \n\n\nFloor
-    textures\n\n10 Texture Sets 'Industrial 02' by Angry Ant Entertainment \n \n\nDay
+    generator\n\nCreating a Hexagon Grid in Unity by Cornelius Custard\n\n\nFloor
+    textures\n\n10 Texture Sets 'Industrial 02' by Angry Ant Entertainment\n \n\nDay
     and night cycle\n\nSimplest possible day night cycle in Unity 5 by \xD8yvind Str\xF8msvik
-    (TwiiK)\n\n\nMenu background\n\nGrid hex hexagonal hexagon pattern by Coffee \n\n\nMenu
-    logic and selection box\n\nMake A Gorgeous Start Menu by Thomas Brush \n\n\nMenu
-    and game fonts\n\nBarkentina by Kiril  \n\n\nGame fonts and icons\n\nLecompte
-    Free Font by Andy Lobjois \n\n\nMenu sound effects\n\nSciFi UI Sound FX by Bright
-    Shining Star \n\n\nFootstep sound effects\n\nClassic footsteps SFX by Matthew
-    Anett\n\n\nCharacter sound and effects\n\nVoice of Heroes: Billy by Artefoley
-    \n\n\nVarious game sound effects\n\nFREE Casual Game SFX Pack by Dustyroom\n\n\nBoulder
-    sound effects\n\nBreaking A Wall Down (With A Hammer) by scampsie \n\n\nBackground
-    music\n\nArt of Silence by Uniq (CC BY 4.0)\n"
+    (TwiiK)\n\n\nMenu background\n\nGrid hex hexagonal hexagon pattern by Coffee\n\n\nMenu
+    logic and selection box\n\nMake A Gorgeous Start Menu by Thomas Brush\n\n\nMenu
+    and game fonts\n\nBarkentina by Kiril\n\n\nOptions logic\n\nSettings Menu Unity
+    by Brackeys\n\n\nGame fonts and icons\n\nLecompte Free Font by Andy Lobjois\n\n\nMenu
+    sound effects\n\nSciFi UI Sound FX by Bright Shining Star\n\n\nFootstep sound
+    effects\n\nClassic footsteps SFX by Matthew Anett\n\n\nCharacter sound and effects\n\nVoice
+    of Heroes: Billy by Artefoley\n\n\nVarious game sound effects\n\nFREE Casual Game
+    SFX Pack by Dustyroom\n\n\nBoulder sound effects\n\nBreaking A Wall Down (With
+    A Hammer) by scampsie\n\n\nBackground music\n\nArt of Silence by Uniq (CC BY 4.0)\n"
 --- !u!222 &928373120
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 1500}
+  m_SizeDelta: {x: 700, y: 1800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1045844200
 GameObject:
@@ -467,6 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2093792056}
   - component: {fileID: 2093792057}
+  - component: {fileID: 2093792058}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -492,7 +493,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2000}
-  m_SizeDelta: {x: 700, y: 1500}
+  m_SizeDelta: {x: 700, y: 1800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2093792057
 Animator:
@@ -513,3 +514,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2093792058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093792055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6294638dc5141ec98efc4e355e1d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2093792057}
+  audioManagerPrefab: {fileID: 6795144067265980895, guid: 280c196d369e44ad5aa72ef73d3daa23,
+    type: 3}
+  LevelManagerPrefab: {fileID: 5315016876928239330, guid: a73a864c7f0e947cb94c9f2902e1ce36,
+    type: 3}

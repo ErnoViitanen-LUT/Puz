@@ -208,7 +208,7 @@ public class SimpleCharacterController : MonoBehaviour
 
       Transform camera = Camera.main.transform;
 
-      if (Input.GetKey(KeyCode.LeftShift))
+      if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
       {
          v *= m_runScale;
          h *= m_runScale;

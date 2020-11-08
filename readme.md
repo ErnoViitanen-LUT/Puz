@@ -53,7 +53,7 @@ Barkentina by Kiril [Fontm.com](http://fontm.com/barkentina-font/)
 
 * Menu fonts
 
-Make A Gorgeous Start Menu by Thomas Brush [YouTube](https://www.youtube.com/watch?v=vqZjZ6yv1lA&ab_channel=ThomasBrush)
+Make A Gorgeous Start Menu by Thomas Brush [YouTube](https://www.youtube.com/watch?v=vqZjZ6yv1lA)
 
 * Menu logic
 * Menu selection box
@@ -70,3 +70,6 @@ Breaking A Wall Down (With A Hammer) by scampsie [Freesound](https://freesound.o
 
 * Boulder sounds
 
+Settings Menu Unity by Brackeys [YouTube](https://www.youtube.com/watch?v=YOaYQrN1oYQ)
+
+* Options logic

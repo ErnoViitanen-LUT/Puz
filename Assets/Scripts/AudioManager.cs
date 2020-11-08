@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
    private static AudioManager _instance;
 
    public static AudioManager Instance { get { return _instance; } }
+   public AudioMixer audioMixer;
    public AudioClip musicClip;
    public bool musicOn = true;
    public AudioClip footStep;
@@ -42,17 +43,21 @@ public class AudioManager : MonoBehaviour
          musicSource.clip = musicClip;
          musicSource.loop = true;
          musicSource.volume = musicVolume;
+         musicSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Music")[0];
 
          effectSource = gameObject.AddComponent<AudioSource>();
          effectSource.clip = levelClear;
          effectSource.volume = effectsVolume;
+         effectSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Effects")[0];;
 
          footStepSource = gameObject.AddComponent<AudioSource>();
          footStepSource.clip = footStep;
          footStepSource.volume = effectsVolume;
+         footStepSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Effects")[0];;
 
          menuSource = gameObject.AddComponent<AudioSource>();
          menuSource.volume = menuVolume;
+         menuSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Effects")[0];;
 
          DontDestroyOnLoad(transform.gameObject);
          PlayMusic();

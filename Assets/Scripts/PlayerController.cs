@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
    void OnTriggerExit(Collider other)
    {
-      Debug.Log("TriggerExit" + gameObject.name + " with " + other.name);
+      //Debug.Log("TriggerExit" + gameObject.name + " with " + other.name);
 
       if (other.tag == "HexTarget" && !levelComplete)
       {
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
       }
       else if (other.tag == "Player")
       {
-         Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
+         //Debug.Log("TriggerEnter" + gameObject.name + " with " + other.name);
          int r1 = Random.Range(1, 30);
          int r2 = Random.Range(1, 30);
          int r3 = Random.Range(1, 30);

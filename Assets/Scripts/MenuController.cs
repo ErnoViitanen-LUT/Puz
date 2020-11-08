@@ -6,6 +6,8 @@ public class MenuController : MonoBehaviour
 {
 
    public int index = 0;
+   public GameObject options;
+   public GameObject mainmenu;
    public int maxIndex = 2;
    public bool keyDown;
    public GameObject audioManagerPrefab;
@@ -15,6 +17,10 @@ public class MenuController : MonoBehaviour
    void Start()
    {
       GameObject manager = GameObject.FindGameObjectWithTag("AudioManager");
+      options = GameObject.FindGameObjectWithTag("Options");
+      mainmenu = GameObject.FindGameObjectWithTag("MainMenu");
+
+      options.gameObject.SetActive(false);
       if (!manager)
          manager = Instantiate(audioManagerPrefab);
 
@@ -26,35 +32,40 @@ public class MenuController : MonoBehaviour
    // Update is called once per frame
    void Update()
    {
+
+
+
       if (Input.GetButtonDown("Submit"))
       {
-         AudioManager.Instance.PlayMenuPressed();
+         //AudioManager.Instance.PlayMenuPressed();
       }
 
       if (Input.GetButtonDown("Vertical"))
       {
-         AudioManager.Instance.PlayMenuSelected();
+         if(index < maxIndex + 1){
+            AudioManager.Instance.PlayMenuSelected();
 
-         if (Input.GetAxisRaw("Vertical") < 0)
-         {
-            if (index < maxIndex)
+            if (Input.GetAxisRaw("Vertical") < 0)
             {
-               index++;
+               if (index < maxIndex)
+               {
+                  index++;
+               }
+               else
+               {
+                  index = 0;
+               }
             }
-            else
+            else if (Input.GetAxisRaw("Vertical") > 0)
             {
-               index = 0;
-            }
-         }
-         else if (Input.GetAxisRaw("Vertical") > 0)
-         {
-            if (index > 0)
-            {
-               index--;
-            }
-            else
-            {
-               index = maxIndex;
+               if (index > 0)
+               {
+                  index--;
+               }
+               else
+               {
+                  index = maxIndex;
+               }
             }
          }
       }

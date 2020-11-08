@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8376daaa6703a4e868fce253fc2050e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 35d902ba947c3432fb56ebbdd6fffc89, type: 2}
   musicClip: {fileID: 8300000, guid: 5dc4d48f569d146d79ac73fe5d7ca056, type: 3}
   musicOn: 1
   footStep: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
@@ -70,6 +71,6 @@ MonoBehaviour:
   menu:
   - {fileID: 8300000, guid: 1cbfa67f2f0d3e94a81737cac1c78391, type: 3}
   - {fileID: 8300000, guid: 53c203a356407fc438f70849d5b3a653, type: 3}
-  musicVolume: 0.8
+  musicVolume: 1
   menuVolume: 0.1
-  effectsVolume: 0.8
+  effectsVolume: 1

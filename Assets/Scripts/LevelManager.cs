@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
    public bool levelComplete = false;
    public int gameCompleted = 0;
    public bool easyMode = true;
+   public bool tutorialCompleted = false;
 
    public bool betweenLevels = false;
    public List<string> levels;
@@ -79,6 +80,10 @@ public class LevelManager : MonoBehaviour
       level = -1;
       nextLevel = levels[0];
       SceneManager.LoadScene("LevelLoader");
+   }   
+   public void Credits()
+   {
+      SceneManager.LoadScene("Credits");
    }
    public void MainMenu()
    {
