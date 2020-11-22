@@ -1,6 +1,6 @@
 # Puz
 
-## Install
+## Deploy
 
 * npm i gh-pages
 
@@ -10,6 +10,9 @@
 
 https://ernoviitanen-lut.github.io/Puz/index.html
 
+## Watch
+
+https://youtu.be/UXqjvS-uQg4
 ## Credits
 
 Character Pack: Free Sample by Sypercyan [Asset Store](https://assetstore.unity.com/packages/3d/characters/humanoids/character-pack-free-sample-79870)
@@ -73,3 +76,7 @@ Breaking A Wall Down (With A Hammer) by scampsie [Freesound](https://freesound.o
 Settings Menu Unity by Brackeys [YouTube](https://www.youtube.com/watch?v=YOaYQrN1oYQ)
 
 * Options logic
+
+Villanious by David Fesliyan [fesliyanstudios.com](https://www.fesliyanstudios.com/royalty-free-music/download/villainous/397)
+
+* Credits to Fesliyan Studios for the background music in the trailer

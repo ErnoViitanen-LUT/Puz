@@ -248,8 +248,8 @@ MonoBehaviour:
     sound effects\n\nClassic footsteps SFX by Matthew Anett\n\n\nCharacter sound and
     effects\n\nVoice of Heroes: Billy by Artefoley\n\n\nVarious game sound effects\n\nFREE
     Casual Game SFX Pack by Dustyroom\n\n\nBoulder sound effects\n\nBreaking A Wall
-    Down (With A Hammer) by scampsie\n\n\nBackground music\n\nArt of Silence by Uniq
-    (CC BY 4.0)"
+    Down (With A Hammer) by scampsie\n\n\nTeaser trailer background music\n\nVillanious
+    by David Fesliyan \n\n\nBackground music\n\nArt of Silence by Uniq (CC BY 4.0)"
 --- !u!222 &928373120
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 1800}
+  m_SizeDelta: {x: 700, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1045844200
 GameObject:
@@ -495,7 +495,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2000}
-  m_SizeDelta: {x: 700, y: 1800}
+  m_SizeDelta: {x: 700, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2093792057
 Animator:

@@ -96,6 +96,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
          case "Quit":
             Time.timeScale = 1f;
             Application.OpenURL(url);
+            Application.Quit();
             break;
          case "Continue":
             Time.timeScale = 1f;

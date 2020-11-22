@@ -945,6 +945,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Time
       objectReference: {fileID: 0}
+    - target: {fileID: 7545556115415809715, guid: 62dfd601cad4b4d65be0499b749ab19b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7545556117203097244, guid: 62dfd601cad4b4d65be0499b749ab19b,
         type: 3}
       propertyPath: m_Enabled
