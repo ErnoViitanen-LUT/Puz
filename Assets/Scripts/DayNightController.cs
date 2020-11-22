@@ -48,11 +48,11 @@ public class DayNightController : MonoBehaviour
             Invoke("FlashlightOn", 1);
          }
       }
-      else if (currentTimeOfDay <= 0.25f)
+      else if (currentTimeOfDay <= 0.25f) // day is coming
       {
          intensityMultiplier = Mathf.Clamp01((currentTimeOfDay - 0.23f) * (1 / 0.02f));
       }
-      else if (currentTimeOfDay >= 0.73f)
+      else if (currentTimeOfDay >= 0.73f) // night is coming
       {
          intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - 0.73f) * (1 / 0.02f)));
       }
@@ -73,5 +73,17 @@ public class DayNightController : MonoBehaviour
    {
       flashlight.intensity = 0f;
       AudioManager.Instance.PlayFlashlight();
+   }
+
+   public void SwitchDayNightMode(){
+      if (currentTimeOfDay <= 0.23f || currentTimeOfDay >= 0.73f) // night time
+      {
+         currentTimeOfDay = 0.23f;
+      }
+      else // day time
+      {
+         currentTimeOfDay = 0.73f;
+
+      }
    }
 }

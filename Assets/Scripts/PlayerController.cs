@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
    private bool aboutToDie = false;
 
    public GameObject pausePrefab;
+
    public System.Action healthChanged;
    [SerializeField]
    private int _health;
@@ -91,6 +92,10 @@ public class PlayerController : MonoBehaviour
                //if(item.GetComponentInChildren)
             }
             //transform.position = GameObject.FindGameObjectWithTag("HexTarget").gameObject.transform.position + new Vector3(0, 1f, 0.5f);
+         }
+         if (Input.GetKeyDown(KeyCode.L))
+         {  
+            transform.gameObject.GetComponent<DayNightController>().SwitchDayNightMode();
          }
          if (Input.GetButtonDown("Cancel"))
          {
